@@ -5,11 +5,11 @@ cache: yarn
 stages:
   - name: test
 
-  - name: onboarding-started
+  - name: staging-started
     if: tag is present
-  - name: onboarding
+  - name: staging
     if: tag is present
-  - name: onboarding-finished
+  - name: staging-finished
     if: tag is present
 
   - name: production-started
@@ -30,11 +30,11 @@ jobs:
       install: skip
       env: [ENVIRONMENT=production]
 
-    - stage: onboarding-started
+    - stage: staging-started
       name: Deployment Started
       script: npx @base-cms/newsletter-deployment-tool notify-started
       install: skip
-      env: [ENVIRONMENT=onboarding]
+      env: [ENVIRONMENT=staging]
 
     #############################
     # vvv ADD SERVICES HERE vvv #
@@ -46,11 +46,11 @@ jobs:
       install: skip
       env: [ENVIRONMENT=production]
 
-    - stage: onboarding
+    - stage: staging
       name: All/Multi-site
       script: npx @base-cms/newsletter-deployment-tool deploy all leonis-newsletters
       install: skip
-      env: [ENVIRONMENT=onboarding]
+      env: [ENVIRONMENT=staging]
 
     #############################
     # ^^^ ADD SERVICES HERE ^^^ #
@@ -62,8 +62,8 @@ jobs:
       install: skip
       env: [ENVIRONMENT=production]
 
-    - stage: onboarding-finished
+    - stage: staging-finished
       name: Deployment Finished
       script: npx @base-cms/newsletter-deployment-tool notify-finished
       install: skip
-      env: [ENVIRONMENT=onboarding]
+      env: [ENVIRONMENT=staging]
