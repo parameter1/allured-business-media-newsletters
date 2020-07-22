@@ -1,2 +1,1 @@
-# newsletter-allured-business-media
-BaseCMS Newsletters for Allured
+# Newsletters for Allured Business Media
