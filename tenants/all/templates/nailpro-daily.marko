@@ -1,0 +1,97 @@
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import emailX from "../config/email-x";
+
+$ const { website, config } = out.global;
+$ const { newsletter, date } = data;
+
+$ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
+
+<marko-newsletter-root
+  title=newsletter.name
+  description=newsletter.description
+  date=date
+>
+  <@head>
+    <common-static-styles />
+  </@head>
+  <@body style="margin: 0px !important;">
+
+    <!-- View online and forward links -->
+
+    <!-- Header -->
+    <common-table width="630" style="border-collapse:collapse;" align="center" class="main" padding=0 spacing=0>
+      <tr>
+        <td>
+          <div style="line-height:20px; font-size:2px;">&nbsp;</div>
+          <common-default-header-block
+            name=newsletter.name
+            href=website.get("origin")
+            image-src="https://p1-cms-assets-allured.imgix.net/files/base/allured/all/image/static/npro_logo.png?h=65"
+            bg-color="#ffffff"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <common-table width="630" style="border-collapse:collapse;" align="center" class="main" padding=0 spacing=0>
+            <tr>
+              <td bgcolor="#0DB5D9" width="100%" height="20" align="left" valign="middle">
+                <div style=`${blackBarText}`>
+                  &nbsp; ${date.format("dddd MMMM D, YYYY")}
+                </div>
+              </td>
+            </tr>
+          </common-table>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </common-table>
+
+    <!-- Featured Articles -->
+    <common-table width="630" style="border-collapse:collapse;" align="center" class="main" padding=0 spacing=0>
+      <tr>
+        <td>
+          <marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
+            date: date.valueOf(),
+            newsletterId: newsletter.id,
+            sectionId: config.get(`sectionIds.${newsletter.alias}.featured-article`),
+            limit: 3,
+            queryFragment,
+          }>
+            $ const heroNode = nodes.slice(0, 1)[0];
+            $ const listNodes = nodes.slice(1);
+            <common-content-hero-element node=heroNode />
+
+            <for|node| of=listNodes>
+              <common-content-standard-element node=node />
+            </for>
+          </marko-web-query>
+        </td>
+      </tr>
+      <tr>
+        <td align="center">
+          <div class="advertisement inline ad-800x400">
+            <marko-newsletters-email-x-display decoded-params=["email", "send"]>
+              <@ad-unit ...emailX.getAdUnit({ name: "magazine", alias: newsletter.alias }) />
+              <@params date=date email="@{email name}@"/>
+            </marko-newsletters-email-x-display>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <common-advertisement-element
+            date=date
+            section-id=config.get(`sectionIds.${newsletter.alias}.ad-primary`)
+            newsletter=newsletter
+            ad-unit=emailX.getAdUnit({ name: "primary", alias: newsletter.alias })
+          />
+        </td>
+      </tr>
+    </common-table>
+
+  <!-- footer -->
+  </@body>
+</marko-newsletter-root>
