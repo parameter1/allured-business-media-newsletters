@@ -1,0 +1,34 @@
+import { getAsObject } from "@base-cms/object-path";
+
+$ const node = getAsObject(input, "node");
+
+$ const primaryColor = "#ef6422";
+$ const contentLinkStyle = {
+  "text-decoration": "none",
+   "text-align": "left",
+  "text-decoration": "none !important",
+  "font-size": "16px",
+  "font-family": "Arial, Helvetica, sans-serif",
+  "color": "#000",
+  "font-weight": "bold"
+};
+$ const teaserStyle = {
+  "text-decoration": "none !important",
+  "font-size": "13px",
+  "font-family": "Arial, Helvetica, sans-serif",
+  color: "#666666",
+  "font-weight": "regular",
+  "text-align": "left",
+  "margin-top": "3px !important",
+  "line-height": "1.2em",
+};
+
+<if(node)>
+  <marko-core-obj-text obj=node field="name" attrs={ style: { "margin-top": "10px", "text-align": "left" } } >
+    <@link href=node.siteContext.url target="_blank" attrs={ style: contentLinkStyle } />
+  </marko-core-obj-text>
+  <marko-core-obj-text tag="p" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
+  <marko-core-text tag="p" value="Read More →">
+    <@link href=node.siteContext.url target="_blank" attrs={ style: contentLinkStyle } />
+  </marko-core-text>
+</if>
