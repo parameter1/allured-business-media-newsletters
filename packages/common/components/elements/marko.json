@@ -1,9 +1,2 @@
 {
-  "<common-advertisement-element>": {
-    "template": "./advertisement.marko",
-    "@date": "date",
-    "@section-id": "number",
-    "@newsletter": "object",
-    "@ad-unit": "object"
-  }
 }

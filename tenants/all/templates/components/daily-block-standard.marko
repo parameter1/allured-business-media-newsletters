@@ -48,7 +48,7 @@ $ const { date, newsletter, sectionId, title, limit, withHero, adPosition } = in
   <if(adPosition)>
     <tr>
       <td>
-        <common-advertisement-element
+        <daily-block-advertisement
           date=date
           section-id=config.get(`sectionIds.${newsletter.alias}.ad-${adPosition}`)
           newsletter=newsletter

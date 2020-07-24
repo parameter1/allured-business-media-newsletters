@@ -14,7 +14,7 @@ fragment NewsletterContentListFragment on Content {
   }
   labels
   published
-  ... on ContentTextAd {
+  ... on ContentPromotion {
     body(input: { mutation: Email })
     linkText
   }
