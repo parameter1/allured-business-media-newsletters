@@ -1,0 +1,35 @@
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import emailX from "../../config/email-x";
+
+$ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
+$ const { config } = out.global;
+$ const { date, newsletter, sectionId, title, limit, withHero, adPosition } = input;
+
+<spacer />
+<!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+<div class="category" style="padding: 0px 0px 1px;">
+
+  <h1 style="margin: 0px;font-size: 16px;line-height: 18px;text-align: left;letter-spacing:.5px;text-transform:uppercase;font-weight:normal;color:#FFFFFF;border-style: solid;border-width:5px 5px 4px;background-color: #FF9900;border-color: #FF9900; ">${title}</h1>
+
+  <marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
+    date: date.valueOf(),
+    newsletterId: newsletter.id,
+    sectionId,
+    limit,
+    queryFragment,
+  }>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;">
+      <tbody>
+        <tr>
+          <for|node| of=nodes>
+            <daily-element-content-logo node=node />
+          </for>
+        </tr>
+      </tbody>
+    </table>
+  </marko-web-query>
+
+</div>
+<!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+
+<spacer />

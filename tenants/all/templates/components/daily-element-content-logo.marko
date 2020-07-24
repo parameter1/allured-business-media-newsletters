@@ -1,0 +1,39 @@
+import { get, getAsArray, getAsObject } from "@base-cms/object-path";
+
+$ const node = getAsObject(input, "node");
+
+$ const imgStyles = {
+  "max-width": "90% !important",
+  "width": "auto !important",
+  "max-height": "80px",
+  "height": "auto !important",
+  "display": "inline-block",
+  "margin": "0 auto",
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "background-color": "#fff",
+};
+
+$ const imgLinkStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+};
+
+<if(node)>
+  <td width="50%" style="width: 40%; padding: 10px 5%;text-align: center; vertical-align: middle;">
+    <!--[if gte mso 9]><table class="ieImgTable" cellpadding="0" cellspacing="0" border="0" style="margin:0 10px 0 0; padding:0;text-align:center;"><tr><td><![endif]-->
+    <marko-core-obj-value|{ value: image }| obj=node field="primaryImage" as="object">
+      <marko-newsletter-imgix
+        src=image.src
+        alt=image.alt
+        options={h: 80 }
+        attrs={ border: 0, h: 80, style: imgStyles }
+      >
+        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+      </marko-newsletter-imgix>
+    </marko-core-obj-value>
+    <!--[if gte mso 9]></td></tr></table><![endif]-->
+  </td>
+</if>
