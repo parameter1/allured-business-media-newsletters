@@ -27,8 +27,16 @@ $ const teaserStyle = {
   <marko-core-obj-text obj=node field="name" attrs={ style: { "margin-top": "10px", "text-align": "left" } } >
     <@link href=node.siteContext.url target="_blank" attrs={ style: contentLinkStyle } />
   </marko-core-obj-text>
+  <marko-core-obj-value|{ value: image }| obj=node field="primaryImage" as="object">
+    <marko-newsletter-imgix
+      src=image.src
+      alt=image.alt
+      options={ w: 600, h: 300, fit: 'crop' }
+      class="main"
+      attrs={ border: 0, width: 600 }
+    >
+      <@link href=node.siteContext.url target="_blank" />
+    </marko-newsletter-imgix>
+  </marko-core-obj-value>
   <marko-core-obj-text tag="p" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
-  <marko-core-text tag="p" value="Read More →">
-    <@link href=node.siteContext.url target="_blank" attrs={ style: contentLinkStyle } />
-  </marko-core-text>
 </if>

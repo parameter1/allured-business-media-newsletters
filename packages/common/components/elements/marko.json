@@ -5,13 +5,5 @@
     "@section-id": "number",
     "@newsletter": "object",
     "@ad-unit": "object"
-  },
-  "<common-content-hero-element>": {
-    "template": "./content-hero.marko",
-    "@node": "object"
-  },
-  "<common-content-standard-element>": {
-    "template": "./content-standard.marko",
-    "@node": "object"
   }
 }

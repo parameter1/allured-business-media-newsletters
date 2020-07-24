@@ -1,0 +1,93 @@
+import { getAsArray, getAsObject } from "@base-cms/object-path"
+
+$ const node = getAsObject(input, "node");
+
+$ const h2Styles = {
+  "font-size": "20px",
+  "line-height": "26px",
+  "margin": "0px 0px 3px 0px",
+  "padding": "0px 0px 3px 0px",
+  "color": "#000000",
+  "text-align": "left",
+  "font-family": "Helvetica,Arial,sans-serif",
+  "font-weight": "bold",
+};
+
+$ const linkStyles = {
+  "color": "#444 !important",
+  "text-decoration": "none !important",
+};
+
+$ const imgStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "display": "block",
+  "margin": "0px 7px 5px 0px",
+  "padding": "0px 7px 5px 0px",
+  "height": "auto !important",
+  "max-width": "30% !important",
+};
+
+$ const imgLinkStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+};
+
+$ const teaserStyles = {
+  "padding": "2px 0px 5px 0px",
+  "margin": "2px 0px 5px 2px",
+  "font-size": "15px",
+  "line-height": "22px",
+  "font-family": "arial,sans-serif",
+  "text-align": "left",
+  "color": "#333",
+};
+
+$ const readMoreStyles = {
+  "padding": "2px 0px 5px 0px",
+  "margin": "2px 0px 5px 2px",
+  "font-size": "15px",
+  "line-height": "22px",
+  "font-family": "arial,sans-serif",
+  "text-align": "left",
+  "color": "#333",
+  "margin-top": 0,
+  "padding-top": 0,
+};
+
+$ const readMoreLinkStyles = {
+  "color": "#06f",
+  "text-decoration": "underline",
+};
+
+<if(node)>
+  <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border-collapse:collapse; border: 3px solid #FF9900; background-color:#FFFFFF; clear:both;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div class="borderfixWhite branded " style="overflow: hidden;margin-bottom: 9px;padding: 8px 12px 4px;background-color: #fff;border: 3px solid #FF9900;">
+    <h4 style="font-size:11px; line-height:19px; margin:0px; padding:0px; text-align:left; font-weight:bold; letter-spacing:1px; text-transform:uppercase; color:#666666; font-family:Helvetica,Arial,sans-serif; color:#FF9900; border-bottom:2px solid #FF9900;">Sponsored</h4>
+    <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: h2Styles } >
+      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyles } />
+    </marko-core-obj-text>
+    <!--[if gte mso 9]><table class="ieImgTable" align="left" cellpadding="0" cellspacing="0" border="0" style="margin:0 10px 0 0; padding:0;"><tr><td><![endif]-->
+    <marko-core-obj-value|{ value: image }| obj=node field="primaryImage" as="object">
+      <marko-newsletter-imgix
+        src=image.src
+        alt=image.alt
+        options={ w: 115, h: 115 }
+        class="main"
+        attrs={ border: 0, width: 115, h: 115, align: "left", hspace: 10, style: imgStyles }
+      >
+        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+      </marko-newsletter-imgix>
+    </marko-core-obj-value>
+    <!--[if gte mso 9]></td></tr></table><![endif]-->
+
+    <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyles } />
+    <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyles }>
+      <@link href=node.siteContext.url target="_blank" attrs={ style: readMoreLinkStyles } />
+    </marko-core-text>
+
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]> </td></tr><tr><td><p class="ie" style="font-size: 1px; line-height: 10px; height: 10px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both; background-color: #FFFFFF;">&nbsp;</p></td></tr></table><![endif]-->
+</if>

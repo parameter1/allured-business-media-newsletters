@@ -6,14 +6,14 @@ $ if (input.bgColor) styles.push(`background-color:${input.bgColor}`);
 $ const wrapper = getAsObject(input, "wrapper");
 
 <common-header-wrapper ...wrapper>
-  <common-table width="630" align="center" class="main" style=styles>
+  <common-table width="600" align="center" class="main" style=styles>
     <tr>
       <td>
         <!-- left -->
-        <common-table width="630" align="left" class="main">
+        <common-table width="600" align="left" class="main">
           <tr>
             <td align="left" valign="top">
-              <marko-newsletter-imgix src=input.imageSrc options={ w: 630 } alt=input.name class="logoScale" attrs={ border: 0, width: 630 }>
+              <marko-newsletter-imgix src=input.imageSrc options={ w: 600 } alt=input.name class="logoScale" attrs={ border: 0, width: 600 }>
                 <@link href=input.href title=input.name target="_blank" />
               </marko-newsletter-imgix>
             </td>
