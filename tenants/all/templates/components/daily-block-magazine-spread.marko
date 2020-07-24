@@ -1,0 +1,32 @@
+import emailX from "../../config/email-x";
+
+$ const { date, newsletter } = input;
+
+$ const imgStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "display": "block",
+  "margin": "2px auto",
+  "padding": "2px 0px",
+  "height": "auto !important",
+  "max-width": "100% !important;",
+};
+$ const linkStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+};
+
+<!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+<div class="web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
+  <!--[if gte mso 9]><table class="ieImgTable" align="left" cellpadding="0" cellspacing="0" border="0" style="margin:0; padding:0;"><tr><td><![endif]-->
+  <marko-newsletters-email-x-display decoded-params=["email", "send"]>
+    <@ad-unit ...emailX.getAdUnit({ name: "magazine", alias: newsletter.alias }) />
+    <@params date=date email="@{email name}@"/>
+    <@image attrs={ style: imgStyles, width: 600, align: "center", vspace: 5 }/>
+    <@link attrs={ style: linkStyles }/>
+  </marko-newsletters-email-x-display>
+  <!--[if gte mso 9]></td></tr></table><![endif]-->
+</div>
+<!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><p class="ie" style="font-size: 1px; line-height: 10px; height: 10px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both;">&nbsp;</p><![endif]-->
