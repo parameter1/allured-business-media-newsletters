@@ -13,10 +13,28 @@ fragment NewsletterContentListFragment on Content {
     alt
   }
   labels
+  # externalLinks {
+  #   key
+  #   url
+  #   label
+  # }
   published
   ... on ContentPromotion {
     body(input: { mutation: Email })
     linkText
+  }
+  ...on ContentNews {
+    byline
+  }
+  ...on Authorable {
+    authors {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
   }
 }
 

@@ -1,38 +1,104 @@
-import { getAsArray, getAsObject } from "@base-cms/object-path";
+import { get, getAsArray, getAsObject } from "@base-cms/object-path";
 
 $ const node = getAsObject(input, "node");
 $ const labels = getAsArray(input, "node.labels");
 
 $ const primaryColor = "#ef6422";
-$ const contentLinkStyle = {
-  "text-decoration": "none",
-   "text-align": "left",
-  "text-decoration": "none !important",
-  "font-size": "16px",
-  "font-family": "Arial, Helvetica, sans-serif",
-  "color": "#000",
-  "font-weight": "bold"
+$ const linkStyle = {
+  "color": "#06f",
+  "text-decoration": "underline",
 };
 $ const teaserStyle = {
-  "text-decoration": "none !important",
-  "font-size": "13px",
-  "font-family": "Arial, Helvetica, sans-serif",
-  color: "#666666",
-  "font-weight": "regular",
+  "padding": "2px 0px 5px 0px",
+  "margin": "2px 0px 5px 2px",
+  "font-size": "15px",
+  "line-height": "22px",
+  "font-family": "arial,sans-serif",
   "text-align": "left",
-  "margin-top": "3px !important",
-  "line-height": "1.2em",
+  "color": "#333;",
 };
+
+$ const headlineStyle = {
+  "font-size": "20px",
+  "line-height": "26px",
+  "margin": "0px 0px 3px 0px",
+  "padding": "0px 0px 3px 0px",
+  "color": "#000000",
+  "text-align": "left",
+  "font-family": "Helvetica,Arial,sans-serif",
+  "font-weight": "bold",
+};
+
+$ const headlineLinkStyle = {
+  "color": "#444 !important",
+  "text-decoration": "none !important"
+};
+
+$ const readMoreStyle = {
+  "padding": "2px 0px 5px 0px",
+  "margin": "2px 0px 5px 2px",
+  "font-size": "15px",
+  "line-height": "22px",
+  "font-family": "arial,sans-serif",
+  "text-align": "left",
+  "color": " #333",
+  "margin-top": 0,
+  "padding-top": 0,
+};
+
+$ const digitalLinkStyle = {
+  "padding": "2px 0px 5px 0px",
+  "margin": "2px 0px 5px 2px",
+  "font-size": "15px",
+  "line-height": "22px",
+  "font-family": "arial,sans-serif",
+  "text-align": "left",
+  "color": "#333",
+  "margin-top": "5px",
+  "padding-top": "5px",
+};
+$ const digitalLink = getAsArray(node, "externalLinks").filter(n => n.key === "digital-magazine").shift();
+
+$ const bylineStyle = {
+  "padding": "2px 0px",
+  "margin": "2px 0px",
+  "font-size": "13px",
+  "line-height": "18px",
+  "font-family": "arial,sans-serif",
+  "text-align": "left",
+  "color": "#666",
+};
+$ const authors = getAsArray(node, "authors.edges").map(edge => get(edge, "node.name"));
+$ const byline = node.byline || authors.join(', ');
 
 <if(labels && labels.includes("Sponsored"))>
   <daily-element-content-sponsored node=node />
 </if>
 <else-if(node)>
-  <marko-core-obj-text obj=node field="name" attrs={ style: { "margin-top": "10px", "text-align": "left" } } >
-    <@link href=node.siteContext.url target="_blank" attrs={ style: contentLinkStyle } />
-  </marko-core-obj-text>
-  <marko-core-obj-text tag="p" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
-  <marko-core-text tag="p" value="Read More →">
-    <@link href=node.siteContext.url target="_blank" attrs={ style: contentLinkStyle } />
-  </marko-core-text>
+
+  <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div class="web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
+    <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: headlineStyle } >
+      <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle } />
+    </marko-core-obj-text>
+
+    <if(byline)>
+      <marko-core-text tag="h4" value=`By: ${byline}` class="byline" attrs={ style: bylineStyle } />
+    </if>
+
+    <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
+
+    <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyle }>
+      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle } />
+    </marko-core-text>
+
+    <if(digitalLink)>
+      $ const linkText = digitalLink.label || "Read this article in the digital magazine";
+      <marko-core-text tag="p" value=linkText attrs={ style: digitalLinkStyle }>
+        <@link href=digitalLink.linkUrl target="_blank" attrs={ style: linkStyle }/>
+      </marko-core-text>
+    </if>
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><p class="ie" style="font-size: 1px; line-height: 10px; height: 10px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both;">&nbsp;</p><![endif]-->
+
 </else-if>
