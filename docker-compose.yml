@@ -49,7 +49,7 @@ services:
     working_dir: /root/tenants/all
     environment:
       <<: *env
-      <<: *env-leonis
+      <<: *env-tauron
       PORT: 80
       EXPOSED_PORT: 22090
       LIVERELOAD_PORT: 32090
