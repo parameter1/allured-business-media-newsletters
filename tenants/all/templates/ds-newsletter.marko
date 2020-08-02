@@ -1,0 +1,109 @@
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import emailX from "../config/email-x";
+
+$ const { website, config } = out.global;
+$ const { newsletter, date } = data;
+
+$ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
+
+<marko-newsletter-root
+  title=newsletter.name
+  description=newsletter.description
+  date=date
+>
+  <@head>
+    <common-static-styles />
+  </@head>
+  <@body style="margin: 0px !important;font-family: Arial, Helvetica, sans-serif;font-size: 100%;padding: 0;background-color: #fff;">
+
+    <!--[if (gte mso 9)|(lte IE 9)]><table width="600" align="center" cellpadding="0" cellspacing="0" border="0" class="ieTableFix"><tr><td valign="top"><![endif]-->
+    <div class="wrapper" style="font-family: Trebuchet, Helvetica, Arial,sans-serif;max-width: 600px;font-size: 100%;margin: 0 auto;padding: 0 5px;">
+
+      <!-- View online, logos, dateline -->
+      <daily-header
+        name=newsletter.name
+        href=website.get("origin")
+        date=date
+        image-src="/files/base/allured/all/image/static/newsletter/ds-newsletter-header.png"
+      />
+
+      <!-- New Products -->
+      <daily-block-featured
+        date=date
+        newsletter=newsletter
+        section-name="New Products"
+        limit=10
+      />
+
+      <!-- Spas -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Spas"
+        with-hero=true
+      />
+
+      <!-- Business -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Business"
+        with-hero=true
+      />
+
+      <!-- Industry News -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Industry News"
+        with-hero=true
+      />
+
+      <!-- Wellness -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Wellness"
+        with-hero=true
+      />
+
+      <!-- Skin and Body -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Skin and Body"
+        with-hero=true
+      />
+
+      <!-- Blogs -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Blogs"
+        with-hero=true
+      />
+
+      <!-- Try It Tuesday -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Try It Tuesday"
+        with-hero=true
+      />
+
+      <!-- In Case You Missed It -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="In Case You Missed It"
+        with-hero=true
+      />
+
+      <!-- footer -->
+      <daily-footer />
+
+    </div>
+    <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+
+  </@body>
+</marko-newsletter-root>

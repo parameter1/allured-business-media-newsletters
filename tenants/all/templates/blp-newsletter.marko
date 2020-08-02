@@ -24,58 +24,56 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         name=newsletter.name
         href=website.get("origin")
         date=date
-        image-src="/files/base/allured/all/image/static/newsletters/nailpro-daily.jpg"
-      />
-
-      <!-- Featured Articles -->
-      <daily-block-featured
-        date=date
-        newsletter=newsletter
-        section-id=config.get(`sectionIds.${newsletter.alias}.featured-article`)
-        limit=3
+        image-src="/files/base/allured/all/image/static/newsletter/blp-newsletter-header.png"
       />
 
       <!-- Industry News -->
-      <daily-block-standard
+      <daily-block-featured
         date=date
         newsletter=newsletter
-        section-id=config.get(`sectionIds.${newsletter.alias}.industry-news`)
-        limit=3
-        title="Industry News"
-        ad-position="secondary"
-        with-hero=true
+        section-name="Industry News"
+        limit=10
       />
 
       <!-- New Products -->
       <daily-block-standard
         date=date
         newsletter=newsletter
-        section-id=config.get(`sectionIds.${newsletter.alias}.new-products`)
-        limit=3
-        title="New Products"
-        ad-position="tertiary"
-        with-hero=false
+        section-name="New Products"
+        with-hero=true
       />
 
-      <!-- Can't Miss Digital Magazine Articles -->
+      <!-- Trend Watch -->
       <daily-block-standard
         date=date
         newsletter=newsletter
-        section-id=config.get(`sectionIds.${newsletter.alias}.cant-miss`)
-        limit=5
-        title="Can't Miss Digital Magazine Articles"
-        ad-position="quaternary"
-        with-hero=false
+        section-name="Trend Watch"
+        with-hero=true
       />
 
-    <!-- Partnerships -->
-      <!-- <daily-block-horizontal
+      <!-- Upcoming Events -->
+      <daily-block-standard
         date=date
         newsletter=newsletter
-        section-id=config.get(`sectionIds.${newsletter.alias}.partnerships`)
-        limit=3
-        title="Partnerships"
-      /> -->
+        section-name="Upcoming Events"
+        with-hero=true
+      />
+
+      <!-- Enter To Win -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Enter To Win"
+        with-hero=true
+      />
+
+      <!-- In Case You Missed It -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="In Case You Missed It"
+        with-hero=true
+      />
 
       <!-- footer -->
       <daily-footer />
