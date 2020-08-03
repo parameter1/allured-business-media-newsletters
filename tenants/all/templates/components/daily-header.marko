@@ -1,3 +1,4 @@
+$ const { previewText } = input;
 $ const logoStyles = {
   "max-width": "100% !important",
   "height": "auto !important",
@@ -10,7 +11,9 @@ $ const logoStyles = {
 };
 
 <div id="header">
-  <p id="previewText" style="margin: 0;font-family: Arial, Helvetica, sans-serif;font-size: 1px;line-height: 1px;color: #fff;padding: 0;visibility: hidden;">Skin Inc.  &ndash; Business &bull; Treatments &bull; Science | </p>
+  <if(previewText)>
+    <p id="previewText" style="margin: 0;font-family: Arial, Helvetica, sans-serif;font-size: 1px;line-height: 1px;color: #fff;padding: 0;visibility: hidden;">${previewText}</p>
+  </if>
   <table width="100%" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color: #FFFFFF;">
     <tr>
       <td valign="middle" width="60%" align="left" style="text-align:left;">
