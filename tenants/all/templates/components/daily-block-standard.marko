@@ -3,10 +3,11 @@ import emailX from "../../config/email-x";
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
 $ const { config } = out.global;
-$ const { date, newsletter, sectionName, withHero, adPosition } = input;
+$ const { date, newsletter, sectionName, adPosition } = input;
 
 $ const limit = (input.limit) ? input.limit : 10;
 $ const title = (input.title) ? input.title : sectionName;
+$ const withHero = (input.withHero) ? input.withHero : true;
 
 
 <marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
