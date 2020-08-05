@@ -27,13 +27,38 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         image-src="/files/base/allured/all/image/static/newsletter/blp-newsletter-header.png"
       />
 
-      <!-- Industry News -->
+      <!-- Headline -->
       <daily-block-featured
         date=date
         newsletter=newsletter
-        section-name="Industry News"
+        section-name="Headline"
         limit=10
       />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 1"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+      /> -->
+
+      <!-- Industry News -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Industry News"
+      />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 2"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+      /> -->
 
       <!-- New Products -->
       <daily-block-standard
@@ -42,6 +67,15 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="New Products"
         with-hero=false
       />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 3"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+      /> -->
 
       <!-- Trend Watch -->
       <daily-block-standard
@@ -70,6 +104,15 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="In Case You Missed It"
       />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 4"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+      /> -->
 
       <!-- footer -->
       <daily-footer />
