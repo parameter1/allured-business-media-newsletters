@@ -27,12 +27,68 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         image-src="/files/base/allured/all/image/static/newsletter/ds-newsletter-header.png"
       />
 
-      <!-- New Products -->
+      <!-- Headline -->
       <daily-block-featured
         date=date
         newsletter=newsletter
-        section-name="New Products"
+        section-name="Headline"
         limit=10
+      />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 1"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+      /> -->
+
+      <!-- Industry News -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Industry News"
+      />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 2"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+      /> -->
+
+      <!-- New Products -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="New Products"
+        with-hero=false
+      />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 3"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+      /> -->
+
+      <!-- Try It Tuesday -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Try It Tuesday"
+      />
+
+      <!-- Wellness -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Wellness"
       />
 
       <!-- Spas -->
@@ -49,39 +105,11 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Business"
       />
 
-      <!-- Industry News -->
-      <daily-block-standard
-        date=date
-        newsletter=newsletter
-        section-name="Industry News"
-      />
-
-      <!-- Wellness -->
-      <daily-block-standard
-        date=date
-        newsletter=newsletter
-        section-name="Wellness"
-      />
-
       <!-- Skin and Body -->
       <daily-block-standard
         date=date
         newsletter=newsletter
         section-name="Skin and Body"
-      />
-
-      <!-- Blogs -->
-      <daily-block-standard
-        date=date
-        newsletter=newsletter
-        section-name="Blogs"
-      />
-
-      <!-- Try It Tuesday -->
-      <daily-block-standard
-        date=date
-        newsletter=newsletter
-        section-name="Try It Tuesday"
       />
 
       <!-- In Case You Missed It -->
@@ -90,6 +118,15 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="In Case You Missed It"
       />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 4"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+      /> -->
 
       <!-- footer -->
       <daily-footer />
