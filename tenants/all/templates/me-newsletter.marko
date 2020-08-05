@@ -27,13 +27,22 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         image-src="/files/base/allured/all/image/static/newsletter/me-newsletter-header.png"
       />
 
-      <!-- In This Issue -->
+      <!-- Headline -->
       <daily-block-featured
         date=date
         newsletter=newsletter
-        section-name="In This Issue"
+        section-name="Headline"
         limit=10
       />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 1"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+      /> -->
 
       <!-- Industry News -->
       <daily-block-standard
@@ -42,12 +51,14 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Industry News"
       />
 
-      <!-- Research -->
-      <daily-block-standard
+      <!-- <spacer />
+
+      <daily-block-advertisement
         date=date
+        section-name="Ad Slot 2"
         newsletter=newsletter
-        section-name="Research"
-      />
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+      /> -->
 
       <!-- New Products -->
       <daily-block-standard
@@ -55,6 +66,22 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="New Products"
         with-hero=false
+      />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 3"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+      /> -->
+
+      <!-- Research -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Research"
       />
 
       <!-- FDA Approvals -->
@@ -77,6 +104,15 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="In Case You Missed It"
       />
+
+      <!-- <spacer />
+
+      <daily-block-advertisement
+        date=date
+        section-name="Ad Slot 4"
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+      /> -->
 
       <!-- footer -->
       <daily-footer />
