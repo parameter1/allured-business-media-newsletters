@@ -3,7 +3,7 @@ import queryFragment from "@allured-business-media/common/graphql/fragments/cont
 
 $ const adUnit = getAsObject(input, "adUnit");
 $ const newsletter = getAsObject(input, "newsletter");
-$ const { sectionId, date } = input;
+$ const { sectionName, date } = input;
 
 $ const linkStyle = {
   "color": "#06f",
@@ -68,7 +68,7 @@ $ const imgStyles = {
   <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params={
     date: date.valueOf(),
     newsletterId: newsletter.id,
-    sectionId,
+    sectionName,
     limit: 1,
     queryFragment,
   }>
