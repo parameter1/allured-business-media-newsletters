@@ -4,7 +4,7 @@ import emailX from "../../config/email-x";
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
 $ const { config } = out.global;
-$ const { date, newsletter, sectionName, adPosition } = input;
+$ const { date, newsletter, sectionName } = input;
 
 $ const limit = defaultValue(input.limit, 10);
 $ const title = defaultValue(input.title, sectionName);
@@ -39,16 +39,3 @@ $ const withHero = defaultValue(input.withHero, true);
   </div>
   <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
 </marko-web-query>
-
-
-
-<!--
-<spacer />
-<if(adPosition)>
-  <daily-block-advertisement
-    date=date
-    section-id=config.get(`sectionIds.${newsletter.alias}.ad-${adPosition}`)
-    newsletter=newsletter
-    ad-unit=emailX.getAdUnit({ name: adPosition, alias: newsletter.alias })
-  />
-</if> -->
