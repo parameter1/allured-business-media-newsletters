@@ -3,12 +3,111 @@ const EmailXConfiguration = require('@base-cms/marko-newsletters-email-x/config'
 const config = new EmailXConfiguration('https://allured.serve.email-x.io');
 
 config
-  .setAdUnits('np-newsletter', [
+  .setAdUnits('blp-newsletter', [
     {
-      name: 'magazine',
-      id: '5f187f5db484c9223dd5b67a',
-      width: 600,
-      height: 300,
+      name: 'ad-slot-1',
+      id: '5f332b51b484c9a55ed5d5d9',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('blp-newsletter', [
+    {
+      name: 'ad-slot-2',
+      id: '5f332b83c8e5651fa591793d',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('blp-newsletter', [
+    {
+      name: 'ad-slot-3',
+      id: '5f332ba1b484c932d3d5d5fe',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('blp-newsletter', [
+    {
+      name: 'ad-slot-4',
+      id: '5f332bb6c8e56576fb917959',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ds-newsletter', [
+    {
+      name: 'ad-slot-1',
+      id: '5f32ff10c8e565700e9178fc',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ds-newsletter', [
+    {
+      name: 'ad-slot-2',
+      id: '5f332b02c8e565e403917906',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ds-newsletter', [
+    {
+      name: 'ad-slot-3',
+      id: '5f332b1ab484c9b087d5d5b3',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ds-newsletter', [
+    {
+      name: 'ad-slot-4',
+      id: '5f332b27b484c9e28cd5d5bd',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('me-newsletter', [
+    {
+      name: 'ad-slot-1',
+      id: '5f332bccb484c95c14d5d61a',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('me-newsletter', [
+    {
+      name: 'ad-slot-2',
+      id: '5f332bdeb484c9f91cd5d624',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('me-newsletter', [
+    {
+      name: 'ad-slot-3',
+      id: '5f332c0ac8e5652df491797e',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('me-newsletter', [
+    {
+      name: 'ad-slot-4',
+      id: '5f332c1cb484c96606d5d652',
+      width: 300,
+      height: 250,
     },
   ])
 
