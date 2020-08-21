@@ -1,0 +1,127 @@
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+
+import chunk from "../utils/chunk";
+
+$ const { config } = out.global;
+$ const { date, newsletter, sectionName, title, limit } = input;
+
+$ const imgStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "display": "block",
+  "margin": "2px auto",
+  "padding": "2px 0px",
+  "height": "auto !important",
+  "max-width": "100% !important"
+};
+
+$ const imgLinkStyles = {
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none"
+};
+
+$ const headlineStyle = {
+  "font-size": "18px",
+  "line-height": "25px",
+  "margin": "0px 0px 3px 0px",
+  "padding": "0px 0px 3px 0px",
+  "color": "#000000",
+  "text-align": "left",
+  "font-family": "Helvetica,Arial,sans-serif",
+  "font-weight": "normal"
+};
+
+$ const headlineLinkStyle = {
+  "color": "#06f",
+  "text-decoration": "underline"
+};
+
+<spacer />
+
+<marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
+  date: date.valueOf(),
+  newsletterId: newsletter.id,
+  sectionName,
+  limit,
+  queryFragment,
+}>
+  <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div class="category" style="padding: 0px 0px 1px;">
+
+    $ const chunkedNodes = chunk(nodes, 2);
+
+    <table style="max-width:576px;margin:15px auto 10px;" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" align="center">
+      <tbody>
+        <for|row| of=chunkedNodes>
+        <tr>
+          <!-- splitTableRowOpen start -->
+          <td style="font-size:0;" valign="top" align="center">
+            <!--[if mso]><table align="center" border="0" cellspacing="0" cellpadding="0" width="576"><tr><td align="left" valign="top" width="285"><![endif]-->
+          <!-- splitTableRowOpen end -->
+          <for|node, column| of=row>
+            <if(column === 1)>
+            <!-- splitTableMiddle start -->
+            <!--[if mso]></td><td align="left" valign="top" width="285"><![endif]-->
+            <!-- splitTableMiddle end -->
+            </if>
+            <!-- splitTableCellOpen start -->
+            <div style="display:inline-block; max-width:285px; vertical-align:top; width:100%;">
+              <table style="max-width:285px;" width="100%" cellspacing="0" cellpadding="0" border="0" align="left"><tbody>
+                <tr>
+                  <td valign="top" align="center">
+                    <table style="border: 1px solid #FFFFFF;" width="265" bgcolor="#FFFFFF"><tbody>
+                      <tr><td style="font-size:5px; line-height:5px;" height="5">&nbsp;</td></tr>
+                      <tr>
+                        <td align="center">
+                          <table width="255" cellspacing="0" cellpadding="0" border="0"><tbody>
+                            <tr><td width="255">
+                              <!--[if (gte mso 9)|(lte IE 9)]> <table width="255" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+                              <div class="web web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
+                                <!--[if gte mso 9]><table class="ieImgTable" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:2px auto; padding:2px 0;"><tr><td><![endif]-->
+                                <marko-core-obj-value|{ value: image }| obj=node field="primaryImage" as="object">
+                                  <marko-newsletter-imgix
+                                    src=image.src
+                                    alt=image.alt
+                                    options={ w: 250, h: 250, fit: "crop" }
+                                    class="main"
+                                    attrs={ border: 0, height: 250, width: 250, align: "center", vspace: 5, style: imgStyles }
+                                  >
+                                    <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+                                  </marko-newsletter-imgix>
+                                </marko-core-obj-value>
+                                <!--[if gte mso 9]></td></tr></table><![endif]-->
+
+                                <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: headlineStyle } >
+                                  <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle } />
+                                </marko-core-obj-text>
+                              </div>
+                              <!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><p class="ie" style="font-size: 1px; line-height: 10px; height: 10px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both;">&nbsp;</p><![endif]-->
+                              <p style="font-size: 1px; line-height: 2px; height: 2px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both;">&nbsp;</p>
+                            </td></tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+                      <tr><td style="font-size:3px; line-height:3px;" height="3">&nbsp;</td></tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr><td style="font-size:2px; line-height:2px;" height="2">&nbsp;</td></tr>
+              </tbody></table>
+            </div>
+            <!-- splitTableCellClose end -->
+            </for>
+            <!-- splitTableRowClose start -->
+            <!--[if mso]></td></tr></table><![endif]-->
+          </td></tr>
+          <!-- splitTableRowClose end -->
+        </for>
+        <!-- splitTableEnd start -->
+        </tbody>
+      </table>
+
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+
+</marko-web-query>
