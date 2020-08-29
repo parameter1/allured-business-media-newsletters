@@ -145,6 +145,42 @@ config
       width: 300,
       height: 250,
     },
+  ])
+
+  .setAdUnits('np-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '5f4a9cd3c8e565043f918d4e',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('me-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '5f4a9d12b484c90533d5ec74',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ds-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '5f4a9d4fc8e5653687918da0',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('blp-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '5f4a99aac8e5657d61918bd1',
+      width: 300,
+      height: 250,
+    },
   ]);
 
 module.exports = config;
