@@ -1,0 +1,53 @@
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+
+$ const { config } = out.global;
+$ const { date, newsletter, sectionName } = input;
+
+$ const limit = defaultValue(input.limit, 10);
+$ const title = defaultValue(input.title, sectionName);
+$ const withHero = defaultValue(input.withHero, true);
+
+$ const headlineStyle = {
+  "margin": "0px",
+  "color": "#000",
+  "font-size": "16px",
+  "line-height": "25px",
+  "padding": "0px 5px",
+  "background-color": "#FFF",
+  "text-align": "center",
+  "text-transform": "uppercase",
+  "font-weight": "normal",
+  "border-top": "2px solid #000",
+  "border-bottom": "2px solid #000",
+}
+$ const nodeStyle = {
+  "font-family": "Helvetica,'Helvetica Neue',Arial,sans-serif",
+  "font-weight": "normal",
+  "font-size": "18px",
+  "line-height": "24px",
+  "margin": "9px 0 4px",
+  "padding": "9px 0 4px",
+  "color": "#000000",
+}
+
+<marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
+  date: date.valueOf(),
+  newsletterId: newsletter.id,
+  sectionName,
+  limit,
+  queryFragment,
+}>
+
+  <div style="padding: 10px 0;text-align: left; overflow: hidden;" id="body">
+    <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+    <div class="category" style="padding: 0px 0px 1px;">
+      <h1 style=headlineStyle>${sectionName}</h1>
+      <for|node| of=nodes>
+        <marko-core-obj-text obj=node field="teaser" tag="h5" attrs={ style: nodeStyle } />
+      </for>
+      <spacer />
+    </div>
+    <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+  </div>
+</marko-web-query>
