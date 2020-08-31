@@ -1,4 +1,7 @@
 $ const { previewText } = input;
+
+$ const dateIntro = false;
+
 $ const logoStyles = {
   "max-width": "100% !important",
   "height": "auto !important",
@@ -39,10 +42,12 @@ $ const logoStyles = {
   </div>
 </div>
 
-<!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
-<div id="dateIntro" class="" style="padding: 0px 0px 1px; margin-bottom: 1px;">
-  <spacer />
-  <h3 style="margin: 0px;font-size: 14px;line-height: 16px;text-align:left;color:#FFFFFF; border-style: solid; border-width:3px 6px 3px; border-color:#0DB5D9; background-color:#0DB5D9">${input.date.format("dddd MMMM D, YYYY")}</h3>
-  <spacer />
-</div>
-<!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+<if(dateIntro)>
+  <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div id="dateIntro" class="" style="padding: 0px 0px 1px; margin-bottom: 1px;">
+    <spacer />
+    <h3 style="margin: 0px;font-size: 14px;line-height: 16px;text-align:left;color:#FFFFFF; border-style: solid; border-width:3px 6px 3px; border-color:#0DB5D9; background-color:#0DB5D9">${input.date.format("dddd MMMM D, YYYY")}</h3>
+    <spacer />
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+</if>
