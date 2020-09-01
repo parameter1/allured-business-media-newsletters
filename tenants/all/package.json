@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@allured-business-media/common": "^0.0.16",
-    "@base-cms/marko-core": "^1.30.2",
-    "@base-cms/marko-newsletters": "^1.30.2",
+    "@base-cms/marko-core": "^1.36.1",
+    "@base-cms/marko-newsletters": "^1.36.0",
     "@base-cms/marko-newsletters-email-x": "^1.25.0",
     "@base-cms/newsletter-cli": "^1.13.0",
     "@base-cms/object-path": "^1.25.0",
