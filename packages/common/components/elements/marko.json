@@ -1,16 +1,4 @@
 {
-  "<common-view-online-element>": {
-    "template": "./banner/view-online.marko",
-    "@name": "string"
-  },
-  "<common-teaser-element>": {
-    "template": "./banner/teaser.marko",
-    "@teaser": "string"
-  },
-  "<common-stealth-link-element>": {
-    "template": "./banner/stealth-link.marko",
-    "@name": "string"
-  },
   "<common-section-spacer-element>": {
     "template": "./section-spacer.marko"
   },
@@ -27,13 +15,6 @@
       "type": "number",
       "default-value": "0"
     }
-  },
-  "<common-banner-element>": {
-    "template": "./banner/banner.marko",
-    "@name": "string",
-    "@date": "date",
-    "@ad-unit": "object",
-    "@teaser": "string"
   },
   "<common-button-element>": {
     "template": "./button.marko",
