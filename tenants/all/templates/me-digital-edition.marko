@@ -26,51 +26,24 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
       name=newsletter.name
       href=website.get("origin")
       date=date
-      image-src="/files/base/allured/all/image/static/newsletter/me-digital-edition-header.png"
+      image-src="/files/base/allured/all/image/static/newsletter/blp-digital-edition-header.png"
     />
 
-	<div style="background-color: #FFFFFF;border-bottom: 2px solid #333;margin: 0px 5px; padding: 0px 5px;" id="main">
-		<!--[if (gte mso 9)|(lte IE 9)]><p style="font-size:1px; line-height:7px; height: 7px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
-		<div id="headers" style="background-color:#FFF;text-align: center; padding: 5px 0px; display: block; margin: 5px 0 5px; overflow: hidden; position: relative;">
+    <div style="background-color: #FFFFFF;border-bottom: 2px solid #333;margin: 0px 5px; padding: 0px 5px;" id="main">
+      <!--[if (gte mso 9)|(lte IE 9)]><p style="font-size:1px; line-height:7px; height: 7px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
+      <div id="headers" style="background-color:#FFF;text-align: center; padding: 5px 0px; display: block; margin: 5px 0 5px; overflow: hidden; position: relative;">
 
-			<div style="padding: 0px; display: block; margin: 0px 0px; border-bottom: 2px solid #444;" id="header1" />
+        $ const adUnit = emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias });
+        <common-dpm-digital-edition-cover-row
+          newsletter=newsletter
+          date=date
+          publication-id="5f3197e5ed707d2d008b4578"
+          ad-unit=adUnit
+        />
 
-        <div style="padding: 1px 0px 1px; display: block; margin: 0 0 0px 0; overflow: hidden; position: relative;" id="header2">
+      </div>
 
-          <!--[if (gte mso 9)|(lte IE 9)]><table width="590" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border:0px none;border-collapse:collapse;" class="ieTableFix"><tr><td valign="top" height="290" width="265" align="center" style="text-align:center;"><p style="font-size:1px; line-height:15px; height: 15px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
-          <div id="magCover" style="width: 260px;max-width:100%;display:inline-block;vertical-align: bottom;margin:0px auto 0px;overflow:hidden; position:relative;">
-
-            <publication-issue-cover-block
-              date=date
-              newsletter=newsletter
-              publication-id="5f3197e5ed707d2d008b4578"
-              imgWidth=150
-            />
-
-          </div>
-          <!--[if (gte mso 9)|(lte IE 9)]></td><td valign="top" width="325" align="center" style="text-align:center;"><![endif]-->
-
-          <div id="ad" style="width: 320px;max-width:100%;display:inline-block;vertical-align: bottom;margin:0px auto;padding-top:5px; overflow: hidden; position: relative;">
-
-            <spacer style={ "line-height": "15px", "height": "15px" } />
-
-            <h4 style='font-size: 9px;line-height: 15px;margin: 0px auto;padding: 6px 0 1px;text-align: center;font-weight: normal;letter-spacing: 1px;color: #666;font-family: Helvetica,Arial,sans-serif;'>ADVERTISEMENT</h4>
-
-            $ const adUnit = emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias });
-            <marko-newsletters-email-x-display decoded-params=["email", "send"]>
-              <@ad-unit ...adUnit />
-              <@params date=date email="@{email name}@"/>
-            </marko-newsletters-email-x-display>
-
-          </div>
-
-          <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
-
-        </div>
-
-			  <spacer />
-
-		  </div>
+      <common-spacer-element />
 
       <!-- In This Issue -->
       <in-this-issue-block
@@ -79,7 +52,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="In This Issue"
       />
 
-	</div>
+    </div>
 
     <!-- footer -->
     <daily-footer />
