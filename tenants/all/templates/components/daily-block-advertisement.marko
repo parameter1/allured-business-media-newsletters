@@ -60,20 +60,18 @@ $ const imgStyles = {
   "max-width": "30% !important;",
 }
 
-<!--[if (gte mso 9)|(lte IE 9)]><table width='600' bgcolor='#E5E5E5' align='center' cellpadding='0' cellspacing='0' border='0' style='margin:0px; padding:0px; border-collapse:collapse; background-color:#E5E5E5;' class='ieTableFix'><tr><td valign='top'><![endif]-->
-<div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; text-align:center; clear:both; overflow:hidden; background-color:#E5E5E5; background:#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
-  <h5 style="font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif;">ADVERTISEMENT</h5>
-
-  <!-- Check for scheduled promotion -->
-  <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params={
-    date: date.valueOf(),
-    newsletterId: newsletter.id,
-    sectionName,
-    limit: 1,
-    queryFragment,
-  }>
-    <if(nodes.length)>
-      $ const node = nodes.slice(0, 1)[0];
+<!-- Check for scheduled promotion -->
+<marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params={
+  date: date.valueOf(),
+  newsletterId: newsletter.id,
+  sectionName,
+  limit: 1,
+  queryFragment,
+}>
+  <if(nodes.length)>
+    $ const node = nodes.slice(0, 1)[0];
+    <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; text-align:center; clear:both; overflow:hidden; background-color:#E5E5E5; background:#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
+      <h5 style="font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif;">ADVERTISEMENT</h5>
       <div class="wrapper" style="font-family:Helvetica,Arial,sans-serif;max-width: 600px;font-size: 100%;margin: 0 auto;padding: 0 5px;">
         <br>
         <!-- Image -->
@@ -121,22 +119,14 @@ $ const imgStyles = {
         </marko-core-obj-text>
         <!-- End of More Link -->
       </div>
-    </if>
-    <else-if(adUnit.id)>
-      <common-table width="100%">
-        <tr>
-          <td align="center">
-            <div class="advertisement inline ad-600x100">
-              <marko-newsletters-email-x-display decoded-params=["email", "send"]>
-                <@ad-unit ...adUnit />
-                <@params date=date email="@{email name}@"/>
-              </marko-newsletters-email-x-display>
-            </div>
-          </td>
-        </tr>
-      </common-table>
-    </else-if>
-  </marko-web-query>
-
-</div>
+    </div>
+  </if>
+  <else-if(adUnit.id)>
+    <common-advertisement-element
+      ad-unit=adUnit
+      date=date
+      dpm=input.dpm
+    />
+  </else-if>
+</marko-web-query>
 <!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><![endif]-->
