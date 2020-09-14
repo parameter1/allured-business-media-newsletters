@@ -1,5 +1,8 @@
 {
   "taglib-imports": [
     "./header/marko.json"
-  ]
+  ],
+  "<common-publication-issue-cover-block>": {
+    "template": "./publication-issue-cover.marko"
+  }
 }

@@ -1,0 +1,89 @@
+import { getAsObject, get } from "@base-cms/object-path";
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+
+$ const { config } = out.global;
+
+$ const adUnit = getAsObject(input, "adUnit");
+
+$ const dpm = {
+  ...config.getAsObject("dpm.emailx"),
+  ...getAsObject(input, "dpm"),
+};
+
+$ const useEmailxHref = defaultValue(input.useEmailxHref, false);
+
+$ const { name, alias } = adUnit;
+$ const classNames = [`email-x-${alias}-${name}`, input.class];
+
+<div style="padding: 1px 0px 1px; display: block; margin: 0 0 0px 0; overflow: hidden; position: relative;" id="header2">
+
+  <!--[if (gte mso 9)|(lte IE 9)]><table width="590" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border:0px none;border-collapse:collapse;" class="ieTableFix"><tr><td valign="top" height="290" width="265" align="center" style="text-align:center;"><p style="font-size:1px; line-height:15px; height: 15px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
+  <div id="magCover" style="width: 260px;max-width:100%;display:inline-block;vertical-align: bottom;margin:0px auto 0px;overflow:hidden; position:relative;">
+
+    <common-publication-issue-cover-block
+      date=input.date
+      newsletter=input.newsletter
+      publication-id=input.publicationId
+      imgWidth=150
+    />
+
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]></td><td valign="top" width="325" align="center" style="text-align:center;"><![endif]-->
+
+  <marko-newsletters-email-x-data|{ response }| decoded-params=["email", "send"]>
+    <@ad-unit ...adUnit />
+    <@params date=input.date email="@{email name}@" send="@{track_id}@" />
+    <if(response)>
+      $ const { data, clickHref, imageSrc } = response;
+      $ const { ad } = data;
+
+      <!-- determine whether to use emailx click url or the native ad url -->
+      $ const href = useEmailxHref ? clickHref : ad.url;
+      $ const imageAttrs = {
+        ...getAsObject(input.image, "attrs"),
+        width: ad.width,
+        height: ad.height,
+      };
+
+      <div id="ad" style="width: 320px;max-width:100%;display:inline-block;vertical-align: bottom;margin:0px auto;padding-top:5px; overflow: hidden; position: relative;">
+
+        <common-spacer-element style={ "line-height": "15px", "height": "15px" } />
+
+        <h4 style='font-size: 9px;line-height: 15px;margin: 0px auto;padding: 6px 0 1px;text-align: center;font-weight: normal;letter-spacing: 1px;color: #666;font-family: Helvetica,Arial,sans-serif;'>ADVERTISEMENT</h4>
+
+        <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
+          <@link target="_blank" ...input.link href=href />
+        </marko-core-img>
+        <if(defaultValue(dpm.enabled, true))>
+          $ const dpmArgs = ["ln", "lc", "lcv", "lkw"].reduce((o, key) => {
+            // allow null to unset the default values.
+            if (dpm[key] === null) return { ...o, [key]: "" };
+
+            // otherwise treat all values as strings
+            const value = `${dpm[key] || ''}`;
+            if (!value) return o;
+            // if value is in the form of {some.path} (e.g. {ad.lineItemname})
+            // get the value off of the emailx response
+            // otherwise, treat the value as a literal string and use it
+            const matches = /^\{(.*)\}$/.exec(value);
+            if (matches && matches[1]) {
+              const v = get(data, matches[1]);
+              if (v) return { ...o, [key]: v };
+              return o;
+            }
+            return { ...o, [key]: value };
+          }, {
+            ln: get(data, "ad.lineitemName"),
+            lc: "Advertising",
+            lcv: get(data, "ad.advertiserName"),
+          });
+          <marko-newsletters-omail-dpm ...dpmArgs />
+        </if>
+
+      </div>
+    </if>
+  </marko-newsletters-email-x-data>
+
+  <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+
+</div>

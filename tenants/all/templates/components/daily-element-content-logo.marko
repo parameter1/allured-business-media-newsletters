@@ -31,7 +31,11 @@ $ const imgLinkStyles = {
         options={h: 80 }
         attrs={ border: 0, h: 80, style: imgStyles }
       >
-        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+          <@after>
+            <common-dpm-content node=node />
+          </@after>
+        </@link>
       </marko-newsletter-imgix>
     </marko-core-obj-value>
     <!--[if gte mso 9]></td></tr></table><![endif]-->

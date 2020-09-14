@@ -38,7 +38,7 @@ $ const headlineLinkStyle = {
   "text-decoration": "underline"
 };
 
-<spacer />
+<common-spacer-element />
 
 <marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
   date: date.valueOf(),
@@ -88,13 +88,21 @@ $ const headlineLinkStyle = {
                                     class="main"
                                     attrs={ border: 0, height: 250, width: 250, align: "center", vspace: 5, style: imgStyles }
                                   >
-                                    <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+                                    <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+                                      <@after>
+                                        <common-dpm-content node=node />
+                                      </@after>
+                                    </@link>
                                   </marko-newsletter-imgix>
                                 </marko-core-obj-value>
                                 <!--[if gte mso 9]></td></tr></table><![endif]-->
 
                                 <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: headlineStyle } >
-                                  <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle } />
+                                  <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle }>
+                                    <@after>
+                                      <common-dpm-content node=node />
+                                    </@after>
+                                  </@link>
                                 </marko-core-obj-text>
                               </div>
                               <!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><p class="ie" style="font-size: 1px; line-height: 10px; height: 10px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both;">&nbsp;</p><![endif]-->

@@ -9,7 +9,7 @@ $ const { date, newsletter, publicationId, imgWidth } = input;
   queryFragment: latestIssueFragment
 }>
 
-  <spacer style={ "line-height": "15px", "height": "15px" } />
+  <common-spacer-element style={ "line-height": "15px", "height": "15px" } />
 
   <marko-core-obj-value|{ value: coverImage }| obj=latestIssue field="coverImage" as="object">
     <marko-newsletter-imgix
@@ -23,7 +23,7 @@ $ const { date, newsletter, publicationId, imgWidth } = input;
     </marko-newsletter-imgix>
   </marko-core-obj-value>
 
-  <spacer style={ "line-height": "7px", "height": "7px" } />
+  <common-spacer-element style={ "line-height": "7px", "height": "7px" } />
 
   <h5 style="margin: 0px 0px 0px;padding: 0px 0px 0px;text-align: center;font-family: arial;font-weight: normal;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
     <a href=latestIssue.digitalEditionUrl target="_blank" style="min-height:26px;line-height:26px;font-size:18px; padding: 0px 15px;margin: 0 5px 0px;border-radius:5px;font-weight: bold;color: #FFFFFF;text-decoration: none;border:1px solid #FFFFFF;display:inline-block; background-color:#000000;background-image: url(https://abm-email-images.s3.amazonaws.com/hr/shared/drk-gry-btn-bg.jpg); background-repeat: repeat-x; background-position: center center; background:#000 linear-gradient(to bottom, #888 0%, #222222 100%);box-shadow:0 0px 5px rgba(0,0,0,.5);">
@@ -31,6 +31,6 @@ $ const { date, newsletter, publicationId, imgWidth } = input;
     </a>
   </h5>
 
-  <spacer style={ "line-height": "5px", "height": "5px" } />
+  <common-spacer-element style={ "line-height": "5px", "height": "5px" } />
 
 </marko-web-query>

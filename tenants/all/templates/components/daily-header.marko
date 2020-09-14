@@ -30,13 +30,13 @@ $ const logoStyles = {
   <div id="headers" style="text-align: center; padding: 0px 0px; display: block; margin: 0px 0 5px; overflow: hidden; position: relative;">
     <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="middle" width="224" align="center" style="text-align:center;"><![endif]-->
     <div id="branding" style="width: 100%; vertical-align: top; margin:0px auto 0px; overflow:hidden; position:relative; background-color: #fff;">
-      <spacer />
+      <common-spacer-element />
       <div id="headline" style="max-width:100% !important; display:inline-block; vertical-align: bottom; margin:0px auto; overflow:hidden; text-align: center; background-color: #fff;">
         <marko-newsletter-imgix src=input.imageSrc options={ w: 600 } alt=input.name attrs={ border: 0, width: 600, style: logoStyles }>
           <@link href=input.href title=input.name target="_blank" />
         </marko-newsletter-imgix>
       </div>
-      <spacer />
+      <common-spacer-element />
     </div>
     <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
   </div>
@@ -45,9 +45,9 @@ $ const logoStyles = {
 <if(dateIntro)>
   <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div id="dateIntro" class="" style="padding: 0px 0px 1px; margin-bottom: 1px;">
-    <spacer />
+    <common-spacer-element />
     <h3 style="margin: 0px;font-size: 14px;line-height: 16px;text-align:left;color:#FFFFFF; border-style: solid; border-width:3px 6px 3px; border-color:#0DB5D9; background-color:#0DB5D9">${input.date.format("dddd MMMM D, YYYY")}</h3>
-    <spacer />
+    <common-spacer-element />
   </div>
   <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
 </if>
