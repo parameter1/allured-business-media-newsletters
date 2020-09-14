@@ -1,2 +1,108 @@
 {
+  "<common-view-online-element>": {
+    "template": "./banner/view-online.marko",
+    "@name": "string"
+  },
+  "<common-teaser-element>": {
+    "template": "./banner/teaser.marko",
+    "@teaser": "string"
+  },
+  "<common-stealth-link-element>": {
+    "template": "./banner/stealth-link.marko",
+    "@name": "string"
+  },
+  "<common-section-spacer-element>": {
+    "template": "./section-spacer.marko"
+  },
+  "<common-spacer-element>": {
+    "template": "./spacer.marko"
+  },
+  "<common-hr-element>": {
+    "template": "./hr.marko",
+    "@hr-color": {
+      "type": "string",
+      "default-value": "#666"
+    },
+    "@hr-height": {
+      "type": "number",
+      "default-value": "0"
+    }
+  },
+  "<common-banner-element>": {
+    "template": "./banner/banner.marko",
+    "@name": "string",
+    "@date": "date",
+    "@ad-unit": "object",
+    "@teaser": "string"
+  },
+  "<common-button-element>": {
+    "template": "./button.marko",
+    "@button-style": "string",
+    "@button-text-style": "object",
+    "@node": "object",
+    "@alignment": {
+      "type": "string",
+      "default-value": "center"
+    }
+  },
+  "<common-advertisement-element>": {
+    "template": "./advertisement.marko",
+    "<dpm>": {
+      "<when-empty>": {},
+      "@enabled": "boolean",
+      "@use-emailx-href": "boolean",
+      "@ln": "string",
+      "@lc": "string",
+      "@lcv": "string",
+      "@lkw": "string"
+    },
+    "@ad-unit": "object",
+    "@date": "date"
+  },
+  "<common-primary-image-element>": {
+    "template": "./primary-image.marko",
+    "@node": "object",
+    "@img-width": "string",
+    "@class-name": {
+      "type": "string",
+      "default-value": null
+    }
+  },
+  "<common-content-link-element>": {
+    "template": "./content-link.marko",
+    "@node": "object",
+    "@content-link-style": "object",
+    "@content-link-wrapper-style": "object",
+    "@tag": {
+      "type": "string",
+      "default-value": null
+    },
+    "@field": {
+      "type": "string",
+      "default-value": "name"
+    }
+  },
+  "<common-content-teaser-element>": {
+    "template": "./content-teaser.marko",
+    "@node": "object",
+    "@teaser-style": "object",
+    "@tag": {
+      "type": "string",
+      "default-value": null
+    },
+    "@field": {
+      "type": "string",
+      "default-value": "teaser"
+    }
+  },
+  "<common-section-title-element>": {
+    "template": "./section-title.marko",
+    "@title": "string",
+    "@title-alignment": {
+      "type": "string",
+      "default-value": "center"
+    },
+    "@title-table-style": "string",
+    "@title-style": "string"
+  }
 }

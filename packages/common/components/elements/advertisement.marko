@@ -1,0 +1,34 @@
+import defaultValue from "@base-cms/marko-core/utils/default-value";
+import { getAsObject } from "@base-cms/object-path";
+
+$ const { config } = out.global;
+
+$ const adUnit = getAsObject(input, "adUnit");
+
+<!-- merge the dpm input config with the global dpm config -->
+<!-- passing input directly to the component will override the global config values -->
+$ const dpm = {
+  ...config.getAsObject("dpm.emailx"),
+  ...getAsObject(input, "dpm"),
+};
+
+<if(dpm.enabled)>
+  <!-- use the emailx-dpm component when enabled -->
+  <!-- by default, do not use the emailx click url unless explicitly requested -->
+  <common-dpm-emailx
+    ad-unit=adUnit
+    class="scaleAd"
+    date=input.date
+    use-emailx-href=defaultValue(dpm.useEmailxHref, false)
+    when-empty=dpm.whenEmpty
+  >
+    <!-- pass dpm ln, lc, lcv, lkw values if passed, otherwise the defaults will be used -->
+    <@dpm ln=dpm.ln lc=dpm.lc lcv=dpm.lcv lkw=dpm.lkw />
+  </common-dpm-emailx>
+</if>
+<else>
+  <marko-newsletters-email-x-display class="scaledAd" decoded-params=["email", "send"]>
+    <@ad-unit ...adUnit />
+    <@params date=input.date email="@{email name}@" send="@{track_id}@" />
+  </marko-newsletters-email-x-display>
+</else>
