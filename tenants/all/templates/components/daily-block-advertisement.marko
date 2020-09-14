@@ -86,7 +86,11 @@ $ const imgStyles = {
             class="main"
             attrs={ border: 0, width: 115, h: 115, align: "left", hspace: 10, style: imgStyles }
           >
-            <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+            <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+              <@after>
+                <common-dpm-content node=node />
+              </@after>
+            </@link>
           </marko-newsletter-imgix>
         </marko-core-obj-value>
         <!--[if gte mso 9]></td></tr></table><![endif]-->
@@ -94,7 +98,11 @@ $ const imgStyles = {
 
         <!-- Headline -->
         <marko-core-obj-text obj=node field="name" attrs={ style: headlineStyle }>
-          <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle } />
+          <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
+            <@after>
+              <common-dpm-content node=node />
+            </@after>
+          </@link>
         </marko-core-obj-text>
         <!-- End of Headline -->
 
@@ -104,7 +112,12 @@ $ const imgStyles = {
 
         <!-- Read More / Watch Now link -->
         <marko-core-obj-text obj=node field="linkText" attrs={ style: readMoreStyles }>
-          <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle } />
+          <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
+            <@after>
+              <common-dpm-content node=node />
+            </@after>
+          </@link>
+
         </marko-core-obj-text>
         <!-- End of More Link -->
       </div>
