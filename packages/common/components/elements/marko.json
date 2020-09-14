@@ -1,30 +1,6 @@
 {
-  "<common-section-spacer-element>": {
-    "template": "./section-spacer.marko"
-  },
   "<common-spacer-element>": {
     "template": "./spacer.marko"
-  },
-  "<common-hr-element>": {
-    "template": "./hr.marko",
-    "@hr-color": {
-      "type": "string",
-      "default-value": "#666"
-    },
-    "@hr-height": {
-      "type": "number",
-      "default-value": "0"
-    }
-  },
-  "<common-button-element>": {
-    "template": "./button.marko",
-    "@button-style": "string",
-    "@button-text-style": "object",
-    "@node": "object",
-    "@alignment": {
-      "type": "string",
-      "default-value": "center"
-    }
   },
   "<common-advertisement-element>": {
     "template": "./advertisement.marko",
@@ -39,51 +15,5 @@
     },
     "@ad-unit": "object",
     "@date": "date"
-  },
-  "<common-primary-image-element>": {
-    "template": "./primary-image.marko",
-    "@node": "object",
-    "@img-width": "string",
-    "@class-name": {
-      "type": "string",
-      "default-value": null
-    }
-  },
-  "<common-content-link-element>": {
-    "template": "./content-link.marko",
-    "@node": "object",
-    "@content-link-style": "object",
-    "@content-link-wrapper-style": "object",
-    "@tag": {
-      "type": "string",
-      "default-value": null
-    },
-    "@field": {
-      "type": "string",
-      "default-value": "name"
-    }
-  },
-  "<common-content-teaser-element>": {
-    "template": "./content-teaser.marko",
-    "@node": "object",
-    "@teaser-style": "object",
-    "@tag": {
-      "type": "string",
-      "default-value": null
-    },
-    "@field": {
-      "type": "string",
-      "default-value": "teaser"
-    }
-  },
-  "<common-section-title-element>": {
-    "template": "./section-title.marko",
-    "@title": "string",
-    "@title-alignment": {
-      "type": "string",
-      "default-value": "center"
-    },
-    "@title-table-style": "string",
-    "@title-style": "string"
   }
 }
