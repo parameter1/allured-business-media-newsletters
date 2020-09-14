@@ -91,7 +91,11 @@ $ const byline = node.byline || authors.join(', ');
   <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
     <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: headlineStyle } >
-      <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle } />
+      <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle }>
+        <@after>
+          <common-dpm-content node=node />
+        </@after>
+      </@link>
     </marko-core-obj-text>
 
     <!--[if gte mso 9]></td></tr></table><![endif]-->
@@ -103,7 +107,11 @@ $ const byline = node.byline || authors.join(', ');
         class="main"
         attrs={ border: 0, width: 600, align: "center", vspace: 5, style: imgStyles }
       >
-        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+          <@after>
+            <common-dpm-content node=node />
+          </@after>
+        </@link>
       </marko-newsletter-imgix>
     </marko-core-obj-value>
 
@@ -114,13 +122,21 @@ $ const byline = node.byline || authors.join(', ');
     <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
 
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyle }>
-      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle } />
+      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
+        <@after>
+          <common-dpm-content node=node />
+        </@after>
+      </@link>
     </marko-core-text>
 
     <if(digitalLink)>
       $ const linkText = digitalLink.label || "Read this article in the digital magazine";
       <marko-core-text tag="p" value=linkText attrs={ style: digitalLinkStyle }>
-        <@link href=digitalLink.linkUrl target="_blank" attrs={ style: linkStyle }/>
+        <@link href=digitalLink.linkUrl target="_blank" attrs={ style: linkStyle }>
+          <@after>
+            <common-dpm-content node=node />
+          </@after>
+        </@link>
       </marko-core-text>
     </if>
   </div>

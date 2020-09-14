@@ -67,7 +67,11 @@ $ const readMoreLinkStyles = {
   <div class="borderfixWhite branded " style="overflow: hidden;margin-bottom: 9px;padding: 8px 12px 4px;background-color: #fff;border: 3px solid #FF9900;">
     <h4 style="font-size:11px; line-height:19px; margin:0px; padding:0px; text-align:left; font-weight:bold; letter-spacing:1px; text-transform:uppercase; color:#666666; font-family:Helvetica,Arial,sans-serif; color:#FF9900; border-bottom:2px solid #FF9900;">Sponsored</h4>
     <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: h2Styles } >
-      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyles } />
+      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyles }>
+        <@after>
+          <common-dpm-content node=node />
+        </@after>
+      </@link>
     </marko-core-obj-text>
     <!--[if gte mso 9]><table class="ieImgTable" align="left" cellpadding="0" cellspacing="0" border="0" style="margin:0 10px 0 0; padding:0;"><tr><td><![endif]-->
     <marko-core-obj-value|{ value: image }| obj=node field="primaryImage" as="object">
@@ -78,14 +82,22 @@ $ const readMoreLinkStyles = {
         class="main"
         attrs={ border: 0, width: 115, h: 115, align: "left", hspace: 10, style: imgStyles }
       >
-        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles } />
+        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+          <@after>
+            <common-dpm-content node=node />
+          </@after>
+        </@link>
       </marko-newsletter-imgix>
     </marko-core-obj-value>
     <!--[if gte mso 9]></td></tr></table><![endif]-->
 
     <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyles } />
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyles }>
-      <@link href=node.siteContext.url target="_blank" attrs={ style: readMoreLinkStyles } />
+      <@link href=node.siteContext.url target="_blank" attrs={ style: readMoreLinkStyles }>
+        <@after>
+          <common-dpm-content node=node />
+        </@after>
+      </@link>
     </marko-core-text>
 
   </div>
