@@ -21,6 +21,7 @@ fragment NewsletterContentListFragment on Content {
   published
   company {
     id
+    name
     tasAdvertiserId: customAttribute(input: { path: "tasAdvertiserId" })
   }
   ... on ContentPromotion {
