@@ -24,6 +24,9 @@ fragment NewsletterContentListFragment on Content {
     name
     tasAdvertiserId: customAttribute(input: { path: "tasAdvertiserId" })
   }
+  primarySite {
+    shortName
+  }
   ... on ContentPromotion {
     body(input: { mutation: Email })
     linkText
