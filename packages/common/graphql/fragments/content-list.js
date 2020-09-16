@@ -19,6 +19,10 @@ fragment NewsletterContentListFragment on Content {
   #   label
   # }
   published
+  company {
+    id
+    tasAdvertiserId: customAttribute(input: { path: "tasAdvertiserId" })
+  }
   ... on ContentPromotion {
     body(input: { mutation: Email })
     linkText
