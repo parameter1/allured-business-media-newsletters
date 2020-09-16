@@ -1,7 +1,15 @@
 {
   "<common-dpm-content>": {
     "template": "./content.marko",
-    "@node": "object"
+    "@node": "object",
+    "<dpm>": {
+      "@enabled": "boolean",
+      "@ln": "string",
+      "@lc": "string",
+      "@lcv": "string",
+      "@lkw": "string",
+      "@position": "integer"
+    }
   },
   "<common-dpm-emailx>": {
     "template": "./emailx.marko",
