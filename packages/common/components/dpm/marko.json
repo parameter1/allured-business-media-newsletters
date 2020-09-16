@@ -9,7 +9,8 @@
       "@lcv": "string",
       "@lkw": "string",
       "@position": "integer"
-    }
+    },
+    "@date": "date"
   },
   "<common-dpm-emailx>": {
     "template": "./emailx.marko",
