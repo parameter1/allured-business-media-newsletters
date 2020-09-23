@@ -1,6 +1,6 @@
 const EmailXConfiguration = require('@base-cms/marko-newsletters-email-x/config');
 
-const config = new EmailXConfiguration('https://allured.serve.email-x.parameter1.com');
+const config = new EmailXConfiguration(process.env.EMAILX_SERVE_URI || 'https://allured.serve.email-x.parameter1.com');
 
 config
   .setAdUnits('blp-newsletter', [
