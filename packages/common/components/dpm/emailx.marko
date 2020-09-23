@@ -11,7 +11,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
 
 <marko-newsletters-email-x-data|{ response }| decoded-params=["email", "send"]>
   <@ad-unit ...adUnit />
-  <@params date=input.date email="@{email name}@" send="@{track_id}@" />
+  <@params date=input.date email="@{email name}@" send="@{track_id}@" include-advertiser=true />
   <if(response)>
     $ const { data, clickHref, imageSrc } = response;
     $ const { ad } = data;
@@ -50,7 +50,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
           }, {
             ln: get(data, "ad.lineitemName"),
             lc: "Advertising",
-            lcv: get(data, "ad.advertiserName"),
+            lcv: get(data, "advertiser.externalId") || get(data, "ad.advertiserName"),
           });
           <marko-newsletters-omail-dpm ...dpmArgs />
         </if>
