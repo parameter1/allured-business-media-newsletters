@@ -1,9 +1,11 @@
+import { getAsObject } from "@base-cms/object-path";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 
 import chunk from "../utils/chunk";
 
 $ const { config } = out.global;
 $ const { date, newsletter, sectionName, title, limit } = input;
+$ const dpm = getAsObject(input, 'dpm');
 
 $ const imgStyles = {
   "border": 0,
@@ -49,7 +51,7 @@ $ const headlineLinkStyle = {
 }>
   <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="category" style="padding: 0px 0px 1px;">
-
+    $ let nodePosition = 0;
     $ const chunkedNodes = chunk(nodes, 2);
 
     <table style="max-width:576px;margin:15px auto 10px;" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" align="center">
@@ -61,6 +63,8 @@ $ const headlineLinkStyle = {
             <!--[if mso]><table align="center" border="0" cellspacing="0" cellpadding="0" width="576"><tr><td align="left" valign="top" width="285"><![endif]-->
           <!-- splitTableRowOpen end -->
           <for|node, column| of=row>
+            $ nodePosition += 1;
+            $ dpm.position = nodePosition;
             <if(column === 1)>
             <!-- splitTableMiddle start -->
             <!--[if mso]></td><td align="left" valign="top" width="285"><![endif]-->
@@ -90,7 +94,7 @@ $ const headlineLinkStyle = {
                                   >
                                     <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
                                       <@after>
-                                        <common-dpm-content node=node dpm=input.dpm />
+                                        <common-dpm-content node=node dpm=dpm />
                                       </@after>
                                     </@link>
                                   </marko-newsletter-imgix>
@@ -100,7 +104,7 @@ $ const headlineLinkStyle = {
                                 <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: headlineStyle } >
                                   <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle }>
                                     <@after>
-                                      <common-dpm-content node=node dpm=input.dpm />
+                                      <common-dpm-content node=node dpm=dpm />
                                     </@after>
                                   </@link>
                                 </marko-core-obj-text>
