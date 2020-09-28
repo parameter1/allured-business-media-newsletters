@@ -45,7 +45,7 @@ $ const dpmEnabled = dpmConfig.enabled;
   <!-- Editorial content -->
   <else>
     <!-- brand: get(node, 'primarySite.shortName') || '', -->
-    $ const authors = (get(node, "authors.edges") || []).map(o => get(o, "node.name")).filter(o => o).join(", ");
+    $ const authors = getAsArray(node, "authors.edges").map(o => get(o, "node.name")).filter(o => o).join(", ");
     $ const lcv = [
       get(node, "company.tasAdvertiserId") || "",
       node.id,
