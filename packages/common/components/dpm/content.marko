@@ -1,8 +1,8 @@
-import { getAsArray, get } from "@base-cms/object-path";
+import { getAsArray, get, getAsObject } from "@base-cms/object-path";
 
 $ const { isArray } = Array;
 $ const { config } = out.global;
-$ const { node } = input;
+$ const { node, date } = input;
 
 <!-- load the dpm content config -->
 $ const dpmConfig = config.getAsObject("dpm.content");
@@ -14,13 +14,50 @@ $ const dpmEnabled = dpmConfig.enabled;
 
 <!-- only render when enabled -->
 <if(dpmEnabled)>
-  <!-- flag promotions and text ads as advertisements -->
+  $ const position = get(input, "dpm.position") || 0;
   $ const isAd = ["promotion", "text-ad"].includes(node.type);
-  <!-- set the dpm inputs -->
-  $ const dpm = {
-    lc: isAd ? "Advertising" : "Editorial",
-    lcv: isAd ? get(node, "company.name") : node.type,
-    ln: node.name,
-  };
-  <marko-newsletters-omail-dpm lc=dpm.lc lcv=dpm.lcv ln=dpm.ln />
+
+  <!-- Advertising (promotions, text ads) -->
+  <if(isAd)>
+    <!-- position|brand initials and “nl”_advertiser name_description_TXT_MMYY_sales rep initials_company id -->
+    <!-- For example: 2|sinl_cynosure_intelligent_TXT_2006_PP_8809 -->
+    $ const lcv = [
+      position,
+      [
+        get(node, "primarySite.shortName"),
+        get(node, "company.name"),
+        "description",
+        "TXT",
+        "MMYY",
+        "ZZ",
+        get(node, "company.tasAdvertiserId") || "",
+      ].join("_"),
+    ].join("|");
+    $ const dpm = {
+      ln: get(node, "company.name") || '',
+      lc: "Advertising",
+      lkw: "textad",
+      lcv,
+    };
+    <marko-newsletters-omail-dpm lc=dpm.lc lcv=dpm.lcv ln=dpm.ln lkw=dpm.lkw />
+  </if>
+
+  <!-- Editorial content -->
+  <else>
+    <!-- brand: get(node, 'primarySite.shortName') || '', -->
+    $ const authors = getAsArray(node, "authors.edges").map(o => get(o, "node.name")).filter(o => o).join(", ");
+    $ const lcv = [
+      get(node, "company.tasAdvertiserId") || "",
+      node.id,
+      position,
+      node.name,
+    ].join("|");
+    $ const dpm = {
+      ln: authors,
+      lc: "Editorial",
+      lkw: node.type,
+      lcv: lcv,
+    };
+    <marko-newsletters-omail-dpm lc=dpm.lc lcv=dpm.lcv ln=dpm.ln lkw=dpm.lkw />
+  </else>
 </if>
