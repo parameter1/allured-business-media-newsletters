@@ -28,12 +28,12 @@ $ const withHero = defaultValue(input.withHero, true);
       $ const listNodes = nodes.slice(1);
       <daily-element-content-hero node=heroNode />
       <for|node| of=listNodes>
-        <daily-element-content-standard node=node />
+        <daily-element-content-standard node=node dpm=input.dpm />
       </for>
     </if>
     <else>
       <for|node| of=nodes>
-        <daily-element-content-standard node=node />
+        <daily-element-content-standard node=node dpm=input.dpm />
       </for>
     </else>
   </div>

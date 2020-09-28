@@ -69,7 +69,7 @@ $ const readMoreLinkStyles = {
     <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: h2Styles } >
       <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyles }>
         <@after>
-          <common-dpm-content node=node />
+          <common-dpm-content node=node dpm=input.dpm />
         </@after>
       </@link>
     </marko-core-obj-text>
@@ -84,7 +84,7 @@ $ const readMoreLinkStyles = {
       >
         <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
           <@after>
-            <common-dpm-content node=node />
+            <common-dpm-content node=node dpm=input.dpm />
           </@after>
         </@link>
       </marko-newsletter-imgix>
@@ -95,7 +95,7 @@ $ const readMoreLinkStyles = {
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyles }>
       <@link href=node.siteContext.url target="_blank" attrs={ style: readMoreLinkStyles }>
         <@after>
-          <common-dpm-content node=node />
+          <common-dpm-content node=node dpm=input.dpm />
         </@after>
       </@link>
     </marko-core-text>
