@@ -9,7 +9,7 @@ $ const dpm = getAsObject(input, 'dpm');
 
 <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
 <div class="category" style="padding: 0px 0px 1px;">
-  $ dpm.position = dpm.startingPosition || 0;
+  $ let nodePosition = dpm.startingPosition || 0;
   <marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
     date: date.valueOf(),
     newsletterId: newsletter.id,
@@ -19,13 +19,13 @@ $ const dpm = getAsObject(input, 'dpm');
   }>
     $ const heroNode = nodes.slice(0, 1)[0];
     $ const listNodes = nodes.slice(1);
-    $ dpm.position++;
-    <daily-element-content-hero node=heroNode dpm=dpm />
+    $ nodePosition++;
+    <daily-element-content-hero node=heroNode dpm={ position: nodePosition } />
     <common-spacer-element />
 
     <for|node| of=listNodes>
-      $ dpm.position++;
-      <daily-element-content-standard node=node dpm=dpm />
+      $ nodePosition++;
+      <daily-element-content-standard node=node dpm={ position: nodePosition } />
       <common-spacer-element />
     </for>
   </marko-web-query>
