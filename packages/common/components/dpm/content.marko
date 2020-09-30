@@ -34,7 +34,7 @@ $ const dpmEnabled = dpmConfig.enabled;
       ].join("_"),
     ].join("|");
     $ const dpm = {
-      ln: get(node, "company.name") || '',
+      ln: get(node, "company.name") || "",
       lc: "Advertising",
       lkw: "textad",
       lcv,
@@ -44,9 +44,9 @@ $ const dpmEnabled = dpmConfig.enabled;
 
   <!-- Editorial content -->
   <else>
-    <!-- brand: get(node, 'primarySite.shortName') || '', -->
+    <!-- brand: get(node, "primarySite.shortName") || "", -->
     $ const authors = getAsArray(node, "authors.edges").map(o => get(o, "node.name")).filter(o => o).join(", ");
-    $ const companyName = get(node, "company.name") || '';
+    $ const companyName = get(node, "company.name") || "";
     $ const lcv = [
       get(node, "company.tasAdvertiserId") || "",
       node.id,
@@ -54,7 +54,7 @@ $ const dpmEnabled = dpmConfig.enabled;
       node.name,
     ].join("|");
     $ const dpm = {
-      ln: (node.type === 'Product') ? companyName : authors,
+      ln: (node.type === "Product") ? companyName : authors,
       lc: "Editorial",
       lkw: node.type,
       lcv: lcv,
