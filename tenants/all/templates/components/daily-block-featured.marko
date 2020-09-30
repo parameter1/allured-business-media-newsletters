@@ -19,12 +19,12 @@ $ const dpm = getAsObject(input, 'dpm');
   }>
     $ const heroNode = nodes.slice(0, 1)[0];
     $ const listNodes = nodes.slice(1);
-    $ nodePosition++;
+    $ nodePosition += 1;
     <daily-element-content-hero node=heroNode dpm={ position: nodePosition } />
     <common-spacer-element />
 
     <for|node| of=listNodes>
-      $ nodePosition++;
+      $ nodePosition += 1;
       <daily-element-content-standard node=node dpm={ position: nodePosition } />
       <common-spacer-element />
     </for>
