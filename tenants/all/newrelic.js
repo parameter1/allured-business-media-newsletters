@@ -8,7 +8,7 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: ['base-cms-newsletters/allured-business-media'],
+  app_name: ['parameter1/allured-business-media-newsletters'],
   /**
    * Your New Relic license key.
    */
