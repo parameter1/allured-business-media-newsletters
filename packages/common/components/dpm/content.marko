@@ -45,6 +45,7 @@ $ const dpmEnabled = dpmConfig.enabled;
   <!-- Editorial content -->
   <else>
     <!-- brand: get(node, "primarySite.shortName") || "", -->
+    $ const isSponsored = getAsArray(node, 'labels').includes('Sponsored');
     $ const authors = getAsArray(node, "authors.edges").map(o => get(o, "node.name")).filter(o => o).join(", ");
     $ const companyName = get(node, "company.name") || "";
     $ const lcv = [
@@ -55,8 +56,8 @@ $ const dpmEnabled = dpmConfig.enabled;
     ].join("|");
     $ const dpm = {
       ln: (node.type === "product") ? companyName : authors,
-      lc: "Editorial",
-      lkw: node.type,
+      lc: (isSponsored) ? "Advertising" : "Editorial",
+      lkw: (isSponsored) ? "brandedContent" : node.type,
       lcv: lcv,
     };
     <marko-newsletters-omail-dpm lc=dpm.lc lcv=dpm.lcv ln=dpm.ln lkw=dpm.lkw />
