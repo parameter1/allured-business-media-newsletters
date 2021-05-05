@@ -12,9 +12,30 @@ $ const { sectionName, date, placementId } = input;
 <if(nativeX.uri && placementId)>
   <native-x-fetch|{ data: nxData }| uri=nativeX.uri date=date placement-id=placementId>
     <if(nxData)>
-      $ const node = convertAdToContent(nxData);
-      <daily-block-native-ad date=date node=node />
+      $ const nxNode = convertAdToContent(nxData);
+      <daily-block-native-ad date=date node=nxNode />
     </if>
+    <else-if(sectionName)>
+      <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params={
+        date: date.valueOf(),
+        newsletterId: newsletter.id,
+        sectionName,
+        limit: 1,
+        queryFragment,
+      }>
+        <if(nodes.length)>
+          $ const promotionNode = nodes.slice(0, 1)[0];
+          <daily-block-native-ad date=date node=promotionNode />
+        </if>
+        <else-if(adUnit.id)>
+          <common-advertisement-element
+            ad-unit=adUnit
+            date=date
+            dpm=input.dpm
+          />
+        </else-if>
+      </marko-web-query>
+    </else-if>
     <else-if(adUnit.id)>
       <common-advertisement-element
         ad-unit=adUnit
@@ -33,8 +54,8 @@ $ const { sectionName, date, placementId } = input;
     queryFragment,
   }>
     <if(nodes.length)>
-      $ const node = nodes.slice(0, 1)[0];
-      <daily-block-native-ad date=date node=node />
+      $ const promotionNode = nodes.slice(0, 1)[0];
+      <daily-block-native-ad date=date node=promotionNode />
     </if>
     <else-if(adUnit.id)>
       <common-advertisement-element
@@ -45,4 +66,12 @@ $ const { sectionName, date, placementId } = input;
     </else-if>
   </marko-web-query>
 </else-if>
+<else-if(adUnit.id)>
+  <common-advertisement-element
+    ad-unit=adUnit
+    date=date
+    dpm=input.dpm
+  />
+</else-if>
+
 <!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><![endif]-->
