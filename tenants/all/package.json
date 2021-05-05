@@ -13,11 +13,12 @@
   },
   "dependencies": {
     "@allured-business-media/common": "^1.0.6",
-    "@base-cms/marko-core": "^1.38.0",
-    "@base-cms/marko-newsletters": "^1.39.0",
-    "@base-cms/marko-newsletters-email-x": "^1.41.0",
-    "@base-cms/newsletter-cli": "^1.37.0",
-    "@base-cms/object-path": "^1.37.0",
+    "@parameter1/base-cms-marko-core": "^2.12.0",
+    "@parameter1/base-cms-marko-newsletters": "^2.12.0",
+    "@parameter1/base-cms-marko-web-native-x": "^2.20.0",
+    "@parameter1/base-cms-marko-newsletters-email-x": "^2.5.0",
+    "@parameter1/base-cms-newsletter-cli": "^2.8.5",
+    "@parameter1/base-cms-object-path": "^2.5.0",
     "graphql": "^14.5.4",
     "graphql-tag": "^2.10.1",
     "newrelic": "^5.11.0"
