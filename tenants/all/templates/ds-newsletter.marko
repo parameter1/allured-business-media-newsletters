@@ -1,7 +1,11 @@
+import { get } from "@parameter1/base-cms-object-path";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 import emailX from "../config/email-x";
 
 $ const { website, config } = out.global;
+
+$ const nativeX = config.getAsObject("nativeX");
+
 $ const { newsletter, date } = data;
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
@@ -43,6 +47,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Ad Slot 1"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
         dpm={ position: 1 }
       />
 
@@ -61,6 +66,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Ad Slot 2"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-2`)
         dpm={ position: 2 }
       />
 
@@ -80,6 +86,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Ad Slot 3"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-3`)
         dpm={ position: 3 }
       />
 
@@ -138,6 +145,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Ad Slot 4"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-4`)
         dpm={ position: 4 }
       />
 
