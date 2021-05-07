@@ -1,0 +1,123 @@
+import { get } from "@parameter1/base-cms-object-path";
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import emailX from "../config/email-x";
+
+$ const { website, config } = out.global;
+
+$ const nativeX = config.getAsObject("nativeX");
+
+$ const { newsletter, date } = data;
+
+$ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
+
+<marko-newsletter-root
+  title=newsletter.name
+  description=newsletter.description
+  date=date
+>
+  <@head>
+    <common-static-styles />
+  </@head>
+  <@body style="margin: 0px !important;font-family: Arial, Helvetica, sans-serif;font-size: 100%;padding: 0;background-color: #fff;">
+
+    <!--[if (gte mso 9)|(lte IE 9)]><table width="600" align="center" cellpadding="0" cellspacing="0" border="0" class="ieTableFix"><tr><td valign="top"><![endif]-->
+    <div class="wrapper" style="font-family: Trebuchet, Helvetica, Arial,sans-serif;max-width: 600px;font-size: 100%;margin: 0 auto;padding: 0 5px;">
+
+      <!-- View online, logos, dateline -->
+      <daily-header
+        name=newsletter.name
+        href=website.get("origin")
+        date=date
+        image-src="/files/base/allured/all/image/static/newsletter/np-newsletter-header.png"
+      />
+
+      <!-- Headline -->
+      <daily-block-featured
+        date=date
+        newsletter=newsletter
+        section-name="Headline"
+        limit=10
+        dpm={ startingPosition: 100 }
+      />
+
+      <common-spacer-element />
+
+      <!-- Promotion Slot 1 -->
+      <daily-block-advertisement
+        date=date
+          newsletter=newsletter
+          ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
+          dpm={ position: 1 }
+        />
+
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
+        dpm={ position: 1 }
+      />
+
+      <!-- Industry News -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Industry News"
+        dpm={ startingPosition: 200 }
+      />
+
+      <common-spacer-element />
+
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-2`)
+        dpm={ position: 2 }
+      />
+
+      <!-- New Products -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="New Products"
+        with-hero=false
+        dpm={ startingPosition: 300 }
+      />
+
+      <common-spacer-element />
+
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-3`)
+        dpm={ position: 3 }
+      />
+
+      <!-- Partnerships -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Partnerships"
+        dpm={ startingPosition: 400 }
+      />
+
+      <common-spacer-element />
+
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
+        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-4`)
+        dpm={ position: 4 }
+      />
+
+      <!-- footer -->
+      <daily-footer />
+
+    </div>
+    <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+
+  </@body>
+</marko-newsletter-root>
