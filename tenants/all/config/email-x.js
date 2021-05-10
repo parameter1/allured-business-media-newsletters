@@ -183,6 +183,54 @@ config
     },
   ])
 
+<<<<<<< HEAD
+=======
+  .setAdUnits('si-newsletter', [
+    {
+      name: 'promotion-slot-1',
+      id: '60955e183857312927a77572',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('si-newsletter', [
+    {
+      name: 'ad-slot-1',
+      id: '60955da438573156b8a77529',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('si-newsletter', [
+    {
+      name: 'ad-slot-2',
+      id: '60955ddad1054e0f88bb7297',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('si-newsletter', [
+    {
+      name: 'ad-slot-3',
+      id: '60955defd1054e843fbb72b3',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('si-newsletter', [
+    {
+      name: 'ad-slot-4',
+      id: '60955dfcd1054e717ebb72c6',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+>>>>>>> 9b5262b3c1d4e86ac2068ca9f39785ff459901b7
   .setAdUnits('gci-newsletter', [
     {
       name: 'promotion-slot-1',
