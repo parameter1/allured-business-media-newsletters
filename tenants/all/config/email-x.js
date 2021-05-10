@@ -226,6 +226,51 @@ config
       width: 300,
       height: 250,
     },
+  ])
+
+  .setAdUnits('gci-newsletter', [
+    {
+      name: 'promotion-slot-1',
+      id: '609576e8385731e749a779ba',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter', [
+    {
+      name: 'ad-slot-1',
+      id: '609575b73857315a70a77970',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter', [
+    {
+      name: 'ad-slot-2',
+      id: '60957697d1054e2a58bb7556',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter', [
+    {
+      name: 'ad-slot-3',
+      id: '609576b3d1054e12dcbb7569',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter', [
+    {
+      name: 'ad-slot-4',
+      id: '609576cd3857312a30a779a7',
+      width: 300,
+      height: 250,
+    },
   ]);
 
 module.exports = config;
