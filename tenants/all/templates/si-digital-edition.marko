@@ -1,0 +1,64 @@
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import emailX from "../config/email-x";
+
+$ const { website, config } = out.global;
+$ const { newsletter, date } = data;
+
+$ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
+
+<marko-newsletter-root
+  title=newsletter.name
+  description=newsletter.description
+  date=date
+>
+  <@head>
+    <common-static-styles />
+  </@head>
+  <@body style="margin: 0px !important;font-family: Arial, Helvetica, sans-serif;font-size: 100%;padding: 0;background-color: #fff;">
+
+  <digital-edition-styles />
+
+  <!--[if (gte mso 9)|(lte IE 9)]><table width="600" align="center" cellpadding="0" cellspacing="0" border="0" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div class="wrapper" style="font-family: Trebuchet, Helvetica, Arial,sans-serif;max-width: 600px;font-size: 100%;margin: 0 auto;padding: 0 5px;">
+
+    <!-- View online, logos, dateline -->
+    <daily-header
+      name=newsletter.name
+      href=website.get("origin")
+      date=date
+      image-src="/files/base/allured/all/image/static/newsletter/si-digital-edition-header.png"
+    />
+
+    <div style="background-color: #FFFFFF;border-bottom: 2px solid #333;margin: 0px 5px; padding: 0px 5px;" id="main">
+      <!--[if (gte mso 9)|(lte IE 9)]><p style="font-size:1px; line-height:7px; height: 7px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
+      <div id="headers" style="background-color:#FFF;text-align: center; padding: 5px 0px; display: block; margin: 5px 0 5px; overflow: hidden; position: relative;">
+
+        $ const adUnit = emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias });
+        <common-dpm-digital-edition-cover-row
+          newsletter=newsletter
+          date=date
+          publication-id="60997d5c3e2ef0f9318b45d5"
+          ad-unit=adUnit
+        />
+
+      </div>
+
+      <common-spacer-element />
+
+      <!-- In This Issue -->
+      <in-this-issue-block
+        date=date
+        newsletter=newsletter
+        section-name="In This Issue"
+      />
+
+    </div>
+
+    <!-- footer -->
+    <daily-footer />
+
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+
+  </@body>
+</marko-newsletter-root>

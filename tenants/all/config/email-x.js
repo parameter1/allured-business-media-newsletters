@@ -361,6 +361,42 @@ config
       width: 300,
       height: 250,
     },
+  ])
+
+  .setAdUnits('si-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '60997a8338573127cea78e76',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('pf-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '60997a2c3857316b74a78e5a',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '60997993d1054e5455bb8c00',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-digital-edition', [
+    {
+      name: 'ad-slot-1',
+      id: '609978f23857314ca1a78db6',
+      width: 300,
+      height: 250,
+    },
   ]);
 
 module.exports = config;
