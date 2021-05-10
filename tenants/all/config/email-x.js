@@ -316,6 +316,51 @@ config
       width: 300,
       height: 250,
     },
+  ])
+
+  .setAdUnits('ct-newsletter', [
+    {
+      name: 'promotion-slot-1',
+      id: '609947bd38573151e8a78b91',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter', [
+    {
+      name: 'ad-slot-1',
+      id: '60994880385731e0a8a78b9b',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter', [
+    {
+      name: 'ad-slot-2',
+      id: '609948acd1054e5013bb8a2b',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter', [
+    {
+      name: 'ad-slot-3',
+      id: '609948ea385731d66aa78bb7',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter', [
+    {
+      name: 'ad-slot-4',
+      id: '609948fed1054ea7f4bb8a50',
+      width: 300,
+      height: 250,
+    },
   ]);
 
 module.exports = config;
