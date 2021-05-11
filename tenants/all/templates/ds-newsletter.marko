@@ -28,7 +28,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         name=newsletter.name
         href=website.get("origin")
         date=date
-        image-src="/files/base/allured/all/image/static/newsletter/ds-newsletter-header.png"
+        image-src="/files/base/allured/all/image/static/newsletter/ds-2021-newsletter-header.png"
       />
 
       <!-- Headline -->
@@ -147,6 +147,14 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
         placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-4`)
         dpm={ position: 4 }
+      />
+
+      <!-- partnerships -->
+      <partnerships-footer
+        section-name="Partnerships"
+        name="Partnered With Green Spa Network"
+        href="https://gsnplanet.org/"
+        image-src="/files/base/allured/all/image/static/gsn_logo.png"
       />
 
       <!-- footer -->

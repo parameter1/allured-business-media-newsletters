@@ -1,0 +1,27 @@
+$ const logoStyles = {
+  "max-width": "90% !important",
+  "width": "auto !important",
+  "max-height": "80px",
+  "height": "auto !important",
+  "display": "inline-block",
+  "margin": "0 auto",
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "background-color": "#fff",
+};
+
+<common-spacer-element style={ "line-height": "15px", "height": "15px" } />
+
+<div style="background-color: #fff;margin: 0px auto;font-family: arial;width: 100%;max-width: 600px;padding-top:10px; border-top: 1px solid #ddd;" id="partnershipsFooter">
+    <common-spacer-element />
+    <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="middle" width="250" align="center" style="text-align:center;"><![endif]-->
+    <h3 style="margin: 0px;color: #666;font-size: 16px;line-height: 25px;padding: 0px 5px;background-color: #FFF;text-align: center;text-transform:uppercase;font-weight:normal;font-family:Helvetica,Arial,sans-serif;">${input.sectionName}</h3>
+	<p style="margin:0px;padding:0px;font-family:sans-serif;text-align:center;color: #333;">
+        <marko-newsletter-imgix src=input.imageSrc options={ h: 80 } alt=input.name attrs={ border: 0, height: 80, style: logoStyles }>
+          <@link href=input.href title=input.name target="_blank" />
+        </marko-newsletter-imgix>
+    </p>
+    <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+    <common-spacer-element style={ "line-height": "7px", "height": "7px" } />
+ </div>
