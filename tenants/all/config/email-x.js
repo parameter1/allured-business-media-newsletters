@@ -399,15 +399,23 @@ config
     },
   ])
 
+<<<<<<< HEAD
   .setAdUnits('ct-special-edition', [
     {
       name: 'ad-slot-1',
       id: '609d47853857315aeea79223',
+=======
+  .setAdUnits('ct-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3711d1054e6a08bb8f08',
+>>>>>>> 56d020d82938dc495206e5a6b0c8b631a6b25f19
       width: 300,
       height: 250,
     },
   ])
 
+<<<<<<< HEAD
   .setAdUnits('ct-special-edition', [
     {
       name: 'ad-slot-2',
@@ -466,20 +474,34 @@ config
     {
       name: 'ad-slot-4',
       id: '609d659a3857314429a792b5',
+=======
+  .setAdUnits('gci-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3d433857312929a79149',
+>>>>>>> 56d020d82938dc495206e5a6b0c8b631a6b25f19
       width: 300,
       height: 250,
     },
   ])
 
+<<<<<<< HEAD
   .setAdUnits('pf-special-edition', [
     {
       name: 'ad-slot-1',
       id: '609d67b3d1054e1308bb90e7',
+=======
+  .setAdUnits('pf-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3e68d1054eefc7bb8f88',
+>>>>>>> 56d020d82938dc495206e5a6b0c8b631a6b25f19
       width: 300,
       height: 250,
     },
   ])
 
+<<<<<<< HEAD
   .setAdUnits('pf-special-edition', [
     {
       name: 'ad-slot-2',
@@ -538,6 +560,12 @@ config
     {
       name: 'ad-slot-4',
       id: '609d6ae738573183dda793a3',
+=======
+  .setAdUnits('si-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3fe4d1054e43f0bb8fe3',
+>>>>>>> 56d020d82938dc495206e5a6b0c8b631a6b25f19
       width: 300,
       height: 250,
     },
