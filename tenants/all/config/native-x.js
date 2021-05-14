@@ -61,5 +61,29 @@ module.exports = {
       'ad-slot-3': '609e68c69e5df40001731cbf',
       'ad-slot-4': '609e68cd9966bb00010cbc5c',
     },
+    'ct-special-edition': {
+      'ad-slot-1': '609d609f2c86f00001fe7b8e',
+      'ad-slot-2': '609d60ba9e5df400016b8296',
+      'ad-slot-3': '609d60c02c86f00001fe7d00',
+      'ad-slot-4': '609d60c69e5df400016b831b',
+    },
+    'gci-special-edition': {
+      'ad-slot-1': '609d66052c86f00001febed1',
+      'ad-slot-2': '609d660b9e5df400016bc4db',
+      'ad-slot-3': '609d66129966bb0001056012',
+      'ad-slot-4': '609d66189966bb0001056039',
+    },
+    'pf-special-edition': {
+      'ad-slot-1': '609d685c2c86f00001fed028',
+      'ad-slot-2': '609d68669966bb000105717c',
+      'ad-slot-3': '609d686c9966bb000105720d',
+      'ad-slot-4': '609d68749e5df400016bd740',
+    },
+    'si-special-edition': {
+      'ad-slot-1': '609d6a1c9e5df400016be24f',
+      'ad-slot-2': '609d6a229e5df400016be2b8',
+      'ad-slot-3': '609d6a282c86f00001fedc5b',
+      'ad-slot-4': '609d6a2c2c86f00001fedc6e',
+    },
   },
 };
