@@ -28,7 +28,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         name=newsletter.name
         href=website.get("origin")
         date=date
-        image-src="/files/base/allured/all/image/static/newsletter/gci-newsletter-header.png"
+        image-src="/files/base/allured/all/image/static/newsletter/ct-newsletter-pm-header.png"
       />
 
       <!-- Headline -->
@@ -58,11 +58,11 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         dpm={ position: 1 }
       />
 
-      <!-- Business and R&D -->
+      <!-- Industry News -->
       <daily-block-standard
         date=date
         newsletter=newsletter
-        section-name="Business and R&D"
+        section-name="Industry News"
         dpm={ startingPosition: 200 }
       />
 
@@ -76,6 +76,17 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         dpm={ position: 2 }
       />
 
+      <!-- Formulating -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="Formulating"
+        with-hero=false
+        dpm={ startingPosition: 300 }
+      />
+
+      <common-spacer-element />
+
       <daily-block-advertisement
         date=date
         newsletter=newsletter
@@ -83,6 +94,16 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-3`)
         dpm={ position: 3 }
       />
+
+      <!-- In Case You Missed It -->
+      <daily-block-standard
+        date=date
+        newsletter=newsletter
+        section-name="In Case You Missed It"
+        dpm={ startingPosition: 400 }
+      />
+
+      <common-spacer-element />
 
       <daily-block-advertisement
         date=date
