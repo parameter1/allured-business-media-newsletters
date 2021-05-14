@@ -487,6 +487,42 @@ config
       width: 300,
       height: 250,
     },
+  ])
+
+  .setAdUnits('ct-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3711d1054e6a08bb8f08',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3d433857312929a79149',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('pf-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3e68d1054eefc7bb8f88',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('si-breaking-news', [
+    {
+      name: 'ad-slot-1',
+      id: '609d3fe4d1054e43f0bb8fe3',
+      width: 300,
+      height: 250,
+    },
   ]);
 
 module.exports = config;
