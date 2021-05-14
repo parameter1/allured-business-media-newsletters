@@ -7,7 +7,7 @@ module.exports = {
       'ad-slot-3': '6092b682faf43b0001027770',
       'ad-slot-4': '6092b696a4f9080001739066',
     },
-    'ct-newsletter': {
+    'ct-newsletter-am': {
       'ad-slot-1': '6092b72f93bd50000124f2bf',
       'ad-slot-2': '6092b74193bd50000124f344',
       'ad-slot-3': '6092b75afaf43b00010280f7',
@@ -19,7 +19,7 @@ module.exports = {
       'ad-slot-3': '6092b7a7a4f9080001739c29',
       'ad-slot-4': '6092b7ad93bd50000124f73a',
     },
-    'gci-newsletter': {
+    'gci-newsletter-am': {
       'ad-slot-1': '6092b7fafaf43b0001028654',
       'ad-slot-2': '6092b800faf43b00010286a5',
       'ad-slot-3': '6092b806faf43b00010286e6',
@@ -48,6 +48,18 @@ module.exports = {
       'ad-slot-2': '6092b948faf43b000102910f',
       'ad-slot-3': '6092b94ea4f908000173a951',
       'ad-slot-4': '6092b95493bd5000012504cb',
+    },
+    'ct-newsletter-pm': {
+      'ad-slot-1': '609d78d89e5df400016c5208',
+      'ad-slot-2': '609d78e12c86f00001ff4bde',
+      'ad-slot-3': '609d78d39e5df400016c51da',
+      'ad-slot-4': '609d78f39966bb000105eed6',
+    },
+    'gci-newsletter-pm': {
+      'ad-slot-1': '609e68b69966bb00010cbc19',
+      'ad-slot-2': '609e68c02c86f00001061a92',
+      'ad-slot-3': '609e68c69e5df40001731cbf',
+      'ad-slot-4': '609e68cd9966bb00010cbc5c',
     },
     'ct-special-edition': {
       'ad-slot-1': '609d609f2c86f00001fe7b8e',

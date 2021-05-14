@@ -183,7 +183,7 @@ config
     },
   ])
 
-  .setAdUnits('gci-newsletter', [
+  .setAdUnits('gci-newsletter-am', [
     {
       name: 'promotion-slot-1',
       id: '609576e8385731e749a779ba',
@@ -192,7 +192,7 @@ config
     },
   ])
 
-  .setAdUnits('gci-newsletter', [
+  .setAdUnits('gci-newsletter-am', [
     {
       name: 'ad-slot-1',
       id: '609575b73857315a70a77970',
@@ -201,7 +201,7 @@ config
     },
   ])
 
-  .setAdUnits('gci-newsletter', [
+  .setAdUnits('gci-newsletter-am', [
     {
       name: 'ad-slot-2',
       id: '60957697d1054e2a58bb7556',
@@ -210,7 +210,7 @@ config
     },
   ])
 
-  .setAdUnits('gci-newsletter', [
+  .setAdUnits('gci-newsletter-am', [
     {
       name: 'ad-slot-3',
       id: '609576b3d1054e12dcbb7569',
@@ -219,7 +219,7 @@ config
     },
   ])
 
-  .setAdUnits('gci-newsletter', [
+  .setAdUnits('gci-newsletter-am', [
     {
       name: 'ad-slot-4',
       id: '609576cd3857312a30a779a7',
@@ -318,7 +318,7 @@ config
     },
   ])
 
-  .setAdUnits('ct-newsletter', [
+  .setAdUnits('ct-newsletter-am', [
     {
       name: 'promotion-slot-1',
       id: '609947bd38573151e8a78b91',
@@ -327,7 +327,7 @@ config
     },
   ])
 
-  .setAdUnits('ct-newsletter', [
+  .setAdUnits('ct-newsletter-am', [
     {
       name: 'ad-slot-1',
       id: '60994880385731e0a8a78b9b',
@@ -336,7 +336,7 @@ config
     },
   ])
 
-  .setAdUnits('ct-newsletter', [
+  .setAdUnits('ct-newsletter-am', [
     {
       name: 'ad-slot-2',
       id: '609948acd1054e5013bb8a2b',
@@ -345,7 +345,7 @@ config
     },
   ])
 
-  .setAdUnits('ct-newsletter', [
+  .setAdUnits('ct-newsletter-am', [
     {
       name: 'ad-slot-3',
       id: '609948ea385731d66aa78bb7',
@@ -354,7 +354,7 @@ config
     },
   ])
 
-  .setAdUnits('ct-newsletter', [
+  .setAdUnits('ct-newsletter-am', [
     {
       name: 'ad-slot-4',
       id: '609948fed1054ea7f4bb8a50',
@@ -430,6 +430,51 @@ config
     {
       name: 'ad-slot-4',
       id: '609d4ddfd1054e09f7bb906e',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter-pm', [
+    {
+      name: 'promotion-slot-1',
+      id: '609d82dd385731c5d6a799c0',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter-pm', [
+    {
+      name: 'ad-slot-1',
+      id: '609d82f33857317fa2a799ca',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter-pm', [
+    {
+      name: 'ad-slot-2',
+      id: '609d832438573186c8a799dd',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter-pm', [
+    {
+      name: 'ad-slot-3',
+      id: '609d833f385731634ba799f0',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('ct-newsletter-pm', [
+    {
+      name: 'ad-slot-4',
+      id: '609d8358d1054e221abb9833',
       width: 300,
       height: 250,
     },
@@ -538,6 +583,51 @@ config
     {
       name: 'ad-slot-4',
       id: '609d6ae738573183dda793a3',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter-pm', [
+    {
+      name: 'promotion-slot-1',
+      id: '609e6913d1054ecacdbb98d6',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter-pm', [
+    {
+      name: 'ad-slot-1',
+      id: '609e6970d1054e453bbb98e9',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter-pm', [
+    {
+      name: 'ad-slot-2',
+      id: '609e6986d1054e3e99bb98fc',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter-pm', [
+    {
+      name: 'ad-slot-3',
+      id: '609e6999385731c082a79ac1',
+      width: 300,
+      height: 250,
+    },
+  ])
+
+  .setAdUnits('gci-newsletter-pm', [
+    {
+      name: 'ad-slot-4',
+      id: '609e69bdd1054e83c1bb9921',
       width: 300,
       height: 250,
     },
