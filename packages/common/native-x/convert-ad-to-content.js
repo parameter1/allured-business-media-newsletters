@@ -26,6 +26,8 @@ module.exports = ({ advertiser, campaign, creative }, { sectionName = 'Sponsored
       name: advertiser.name,
       website: advertiser.website,
       primaryImage: getAsObject(advertiser, 'image'),
+      tasAdvertiserId: advertiser.externalId,
+      externalId: advertiser.externalId,
     },
   };
 };

@@ -2,6 +2,7 @@
   "<common-dpm-content>": {
     "template": "./content.marko",
     "@node": "object",
+    "@newsletter": "object",
     "<dpm>": {
       "@enabled": "boolean",
       "@ln": "string",

@@ -1,8 +1,10 @@
 import { getAsArray, get, getAsObject } from "@parameter1/base-cms-object-path";
+import moment from "moment";
 
 $ const { isArray } = Array;
 $ const { config } = out.global;
 $ const { node, date } = input;
+$ const newsletter = getAsObject(input, "newsletter");
 
 <!-- load the dpm content config -->
 $ const dpmConfig = config.getAsObject("dpm.content");
@@ -21,15 +23,16 @@ $ const dpmEnabled = dpmConfig.enabled;
   <if(isAd)>
     <!-- position|brand initials and “nl”_advertiser name_description_TXT_MMYY_sales rep initials_company id -->
     <!-- For example: 2|sinl_cynosure_intelligent_TXT_2006_PP_8809 -->
+    $ const shortName = get(node, "primarySite.shortName") || get(newsletter, "site.shortName");
     $ const lcv = [
       position,
       [
-        get(node, "primarySite.shortName"),
+        `${shortName.toLowerCase()}nl`,
         get(node, "company.name"),
         "description",
         "TXT",
-        "MMYY",
-        "ZZ",
+        moment(date).format('MMYY'),
+        "SLSREP",
         get(node, "company.tasAdvertiserId") || "",
       ].join("_"),
     ].join("|");
