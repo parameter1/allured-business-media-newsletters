@@ -31,8 +31,8 @@ $ const dpmEnabled = dpmConfig.enabled;
         get(node, "company.name"),
         "description",
         "TXT",
-        "ZZ",
         moment(date).format('MMYY'),
+        "SLSREP",
         get(node, "company.tasAdvertiserId") || "",
       ].join("_"),
     ].join("|");
