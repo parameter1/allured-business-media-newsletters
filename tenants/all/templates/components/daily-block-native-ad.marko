@@ -1,4 +1,7 @@
+import { getAsObject } from "@parameter1/base-cms-object-path";
+
 $ const { node, date } = input;
+$ const newsletter = getAsObject(input, "newsletter");
 
 $ const linkStyle = {
   "color": "#06f",
@@ -71,7 +74,7 @@ $ const imgStyles = {
       >
         <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
           <@after>
-            <common-dpm-content node=node dpm=input.dpm date=date />
+            <common-dpm-content node=node dpm=input.dpm newsletter=newsletter date=date />
           </@after>
         </@link>
       </marko-newsletter-imgix>
@@ -83,7 +86,7 @@ $ const imgStyles = {
     <marko-core-obj-text obj=node field="name" attrs={ style: headlineStyle }>
       <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
         <@after>
-          <common-dpm-content node=node dpm=input.dpm />
+          <common-dpm-content node=node newsletter=newsletter dpm=input.dpm />
         </@after>
       </@link>
     </marko-core-obj-text>
@@ -97,7 +100,7 @@ $ const imgStyles = {
     <marko-core-obj-text obj=node field="linkText" attrs={ style: readMoreStyles }>
       <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
         <@after>
-          <common-dpm-content node=node dpm=input.dpm />
+          <common-dpm-content node=node newsletter=newsletter dpm=input.dpm />
         </@after>
       </@link>
 

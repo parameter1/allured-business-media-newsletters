@@ -3,6 +3,7 @@ import { getAsArray, get, getAsObject } from "@parameter1/base-cms-object-path";
 $ const { isArray } = Array;
 $ const { config } = out.global;
 $ const { node, date } = input;
+$ const newsletter = getAsObject(input, "newsletter");
 
 <!-- load the dpm content config -->
 $ const dpmConfig = config.getAsObject("dpm.content");

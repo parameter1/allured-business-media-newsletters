@@ -13,7 +13,7 @@ $ const { sectionName, date, placementId } = input;
   <native-x-fetch|{ data: nxData }| uri=nativeX.uri date=date placement-id=placementId>
     <if(nxData)>
       $ const nxNode = convertAdToContent(nxData);
-      <daily-block-native-ad date=date node=nxNode />
+      <daily-block-native-ad newsletter=newsletter date=date node=nxNode />
     </if>
     <else-if(sectionName)>
       <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params={
@@ -25,7 +25,7 @@ $ const { sectionName, date, placementId } = input;
       }>
         <if(nodes.length)>
           $ const promotionNode = nodes.slice(0, 1)[0];
-          <daily-block-native-ad date=date node=promotionNode />
+          <daily-block-native-ad newsletter=newsletter date=date node=promotionNode />
         </if>
         <else-if(adUnit.id)>
           <common-advertisement-element
@@ -55,7 +55,7 @@ $ const { sectionName, date, placementId } = input;
   }>
     <if(nodes.length)>
       $ const promotionNode = nodes.slice(0, 1)[0];
-      <daily-block-native-ad date=date node=promotionNode />
+      <daily-block-native-ad newsletter=newsletter date=date node=promotionNode />
     </if>
     <else-if(adUnit.id)>
       <common-advertisement-element
