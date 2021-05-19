@@ -1,4 +1,5 @@
 import { getAsArray, get, getAsObject } from "@parameter1/base-cms-object-path";
+import moment from "moment";
 
 $ const { isArray } = Array;
 $ const { config } = out.global;
@@ -30,8 +31,8 @@ $ const dpmEnabled = dpmConfig.enabled;
         get(node, "company.name"),
         "description",
         "TXT",
-        "MMYY",
         "ZZ",
+        moment(date).format('MMYY'),
         get(node, "company.tasAdvertiserId") || "",
       ].join("_"),
     ].join("|");
