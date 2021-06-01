@@ -21,6 +21,7 @@ $ const dpm = {
     date=input.date
     use-emailx-href=defaultValue(dpm.useEmailxHref, false)
     when-empty=dpm.whenEmpty
+    with-header=input.withHeader
   >
     <!-- pass dpm ln, lc, lcv, lkw values if passed, otherwise the defaults will be used -->
     <@dpm ln=dpm.ln lc=dpm.lc lcv=dpm.lcv lkw=dpm.lkw position=dpm.position />
