@@ -25,10 +25,11 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
       width: ad.width,
       height: ad.height,
     };
-    <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; text-align:center; clear:both; overflow:hidden; background-color:#E5E5E5; background:#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
-      <if(withHeader)>
+    <if(withHeader)>
+      <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; text-align:center; clear:both; overflow:hidden; background-color:#E5E5E5; background:#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
         <h5 style="font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif;">ADVERTISEMENT</h5>
-      </if>
+      </div>
+    </if>
       <div ...input.attrs class=classNames>
         <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
           <@link target="_blank" ...input.link href=href />
@@ -62,7 +63,6 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
           <marko-newsletters-omail-dpm ...dpmArgs />
         </if>
       </div>
-    </div>
   </if>
   <else>
     <${input.whenEmpty} />
