@@ -27,7 +27,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
       <h5 style="font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif;">ADVERTISEMENT</h5>
       <div ...input.attrs class=classNames>
         <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
-          <@link target="_blank" ...input.link href=href />
+          <@link target="_blank" ...input.link href=href alt=data.advertiser.name/>
         </marko-core-img>
         <if(defaultValue(dpm.enabled, true))>
           $ const position = dpm.position || 0;
