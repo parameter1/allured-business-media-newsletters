@@ -6,8 +6,6 @@ $ const dpm = getAsObject(input, "dpm");
 
 $ const useEmailxHref = defaultValue(input.useEmailxHref, false);
 
-$ const withHeader = defaultValue(input.withHeader, true);
-
 $ const { name, alias } = adUnit;
 $ const classNames = [`email-x-${alias}-${name}`, input.class];
 
@@ -25,22 +23,10 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
       width: ad.width,
       height: ad.height,
     };
-
-    $ const withHeaderWrapperStyle = {
-      "background-color": "#E5E5E5",
-      "background": "#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%)",
-      "border-bottom": "1px solid #ddd",
-      "text-align": "center",
-    };
-    $ const headerLabelHTML = "<h5 style='font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif; background-color: #E5E5E5; background: #e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd;'>ADVERTISEMENT</h5>";
-
-    $ const headerLabel = (withHeader) ? headerLabelHTML : "";
-
-    $ const adStyle = (withHeader) ? withHeaderWrapperStyle : {}
-    <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; clear:both; overflow:hidden;">
-      $!{headerLabel}
-      <div ...input.attrs class=classNames style=adStyle>
-        <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
+    <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; text-align:center; clear:both; overflow:hidden; background-color:#E5E5E5; background:#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
+      <h5 style="font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif;">ADVERTISEMENT</h5>
+      <div ...input.attrs class=classNames>
+        <marko-core-img ...input.image src=imageSrc attrs=imageAttrs alt=data.advertiser.name>
           <@link target="_blank" ...input.link href=href />
         </marko-core-img>
         <if(defaultValue(dpm.enabled, true))>
