@@ -40,7 +40,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
     <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; clear:both; overflow:hidden;">
       $!{headerLabel}
       <div ...input.attrs class=classNames style=adStyle>
-        <marko-core-img ...input.image src=imageSrc attrs=imageAttrs>
+        <marko-core-img ...input.image src=imageSrc attrs=imageAttrs alt=data.advertiser.name>
           <@link target="_blank" ...input.link href=href />
         </marko-core-img>
         <if(defaultValue(dpm.enabled, true))>
