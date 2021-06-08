@@ -739,6 +739,186 @@ config
       width: 600,
       height: 300,
     },
+  ])
+
+  .setAdUnits('blp-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf73f2c6f7f0d7d22f5e64',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('blp-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf74487bea0ea7a4a4b650',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ct-breaking-news', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf74d8c6f7f019cb2f5eb7',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ct-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf75947bea0e6391a4b699',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ct-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf706ac6f7f0d8112f5c82',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ds-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf764d7bea0e6122a4b6eb',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ds-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf76b3c6f7f022d82f5f48',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('gci-breaking-news', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf77197bea0e4daca4b72c',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('gci-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf776bc6f7f0ad322f5f9a',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('gci-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf6fd47bea0e1d49a4b3e6',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('me-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf78747bea0e5cc9a4b7a2',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('me-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf78c77bea0e3405a4b7d0',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('np-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf79367bea0e07afa4b7ec',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('np-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf79ac7bea0e73c3a4b824',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('pf-breaking-news', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf7a12c6f7f043682f6086',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('pf-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf7a7c7bea0e5c04a4b876',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('pf-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf70a27bea0e5158a4b455',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('si-breaking-news', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf7b1ac6f7f02bb82f60ea',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('si-digital-edition', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf7b65c6f7f0b8362f610f',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('si-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf70d1c6f7f063fb2f5ce6',
+      width: 600,
+      height: 300,
+    },
   ]);
 
 module.exports = config;
