@@ -36,6 +36,17 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         dpm={ startingPosition: 100 }
       />
 
+      <common-spacer-element />
+
+      <!-- Promotion Slot 1 -->
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
+        dpm={ position: 1 }
+        with-header=false
+      />
+
       <!-- Products -->
       <daily-block-grid
         date=date
