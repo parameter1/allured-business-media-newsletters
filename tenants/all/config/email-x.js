@@ -739,6 +739,42 @@ config
       width: 600,
       height: 300,
     },
+  ])
+
+  .setAdUnits('gci-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf6fd47bea0e1d49a4b3e6',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('ct-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf706ac6f7f0d8112f5c82',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('pf-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf70a27bea0e5158a4b455',
+      width: 600,
+      height: 300,
+    },
+  ])
+
+  .setAdUnits('si-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '60bf70d1c6f7f063fb2f5ce6',
+      width: 600,
+      height: 300,
+    },
   ]);
 
 module.exports = config;
