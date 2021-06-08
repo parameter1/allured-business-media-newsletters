@@ -1,7 +1,7 @@
 const { getAsObject } = require('@parameter1/base-cms-object-path');
 
 module.exports = ({ advertiser, campaign, creative }, { sectionName = 'Sponsored' } = {}) => {
-  const { updatedAt } = campaign.lineItem;
+  const { updatedAt, name } = campaign.lineItem;
   return {
     id: campaign.id,
     name: creative.title,
@@ -11,6 +11,7 @@ module.exports = ({ advertiser, campaign, creative }, { sectionName = 'Sponsored
     type: 'promotion',
     teaser: creative.teaser,
     published: updatedAt,
+    lineItemName: name,
     siteContext: {
       path: creative.href,
       canonicalUrl: creative.href,
