@@ -23,7 +23,10 @@ $ const dpmEnabled = dpmConfig.enabled;
     <!-- position|brand initials and “nl”_advertiser name_description_TXT_MMYY_sales rep initials_company id -->
     <!-- For example: 2|sinl_cynosure_intelligent_TXT_2006_PP_8809 -->
     $ const shortName = get(node, "primarySite.shortName") || get(newsletter, "site.shortName");
-    $ const lcv = get(node, "lineItemName")
+    $ const lcv = [
+      position,
+      get(node, "lineItemName")
+    ].join("|");
     $ const dpm = {
       ln: get(node, "company.name") || "",
       lc: "Advertising",
