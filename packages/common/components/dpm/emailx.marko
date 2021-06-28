@@ -64,7 +64,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
             }
             return { ...o, [key]: value };
           }, {
-            lc: "Advertising",
+            lc: (withHeader) ? "Advertising" : "Editorial",
             lkw: "bannerad",
             ln: get(data, "ad.advertiserName"),
             lcv: lcvDefaultValue,
