@@ -85,5 +85,29 @@ module.exports = {
       'ad-slot-3': '609d6a282c86f00001fedc5b',
       'ad-slot-4': '609d6a2c2c86f00001fedc6e',
     },
+    'ct-breaking-news': {
+      'ad-slot-1': '60f083602d99be0001098858',
+      'ad-slot-2': '60f083672d99be0001098862',
+      'ad-slot-3': '60f0836b19d3950001e62b4c',
+      'ad-slot-4': '60f08371e5729900017af8e2',
+    },
+    'gci-breaking-news': {
+      'ad-slot-1': '60f084092d99be0001098d9b',
+      'ad-slot-2': '60f0840fe5729900017afda9',
+      'ad-slot-3': '60f08414e5729900017afdc3',
+      'ad-slot-4': '60f0841919d3950001e630ea',
+    },
+    'pf-breaking-news': {
+      'ad-slot-1': '60f084252d99be0001098ee0',
+      'ad-slot-2': '60f0842be5729900017afeca',
+      'ad-slot-3': '60f0843019d3950001e631e3',
+      'ad-slot-4': '60f0843419d3950001e63219',
+    },
+    'si-breaking-news': {
+      'ad-slot-1': '60f0843f19d3950001e6329a',
+      'ad-slot-2': '60f08445e5729900017affd7',
+      'ad-slot-3': '60f0844ae5729900017b004b',
+      'ad-slot-4': '60f0844ee5729900017b0067',
+    },
   },
 };
