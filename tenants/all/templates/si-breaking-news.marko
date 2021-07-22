@@ -2,6 +2,9 @@ import queryFragment from "@allured-business-media/common/graphql/fragments/cont
 import emailX from "../config/email-x";
 
 $ const { website, config } = out.global;
+
+$ const nativeX = config.getAsObject("nativeX");
+
 $ const { newsletter, date } = data;
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
@@ -51,6 +54,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
       date=date
       newsletter=newsletter
       ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+      placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
       dpm={ position: 1 }
     />
 
