@@ -5,19 +5,19 @@ cache: yarn
 stages:
   - name: test
 
-  - name: staging-started
-    if: tag is present
-  - name: staging
-    if: tag is present
-  - name: staging-finished
-    if: tag is present
-
   - name: production-started
     if: tag =~ /^v\d+\.\d+\.\d+$/
   - name: production
     if: tag =~ /^v\d+\.\d+\.\d+$/
   - name: production-finished
     if: tag =~ /^v\d+\.\d+\.\d+$/
+
+  - name: staging-started
+    if: tag is present
+  - name: staging
+    if: tag is present
+  - name: staging-finished
+    if: tag is present
 
 jobs:
   include:
