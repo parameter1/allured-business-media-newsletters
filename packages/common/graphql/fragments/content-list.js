@@ -11,6 +11,7 @@ fragment NewsletterContentListFragment on Content {
     id
     src
     alt
+    isLogo
   }
   labels
   # externalLinks {
