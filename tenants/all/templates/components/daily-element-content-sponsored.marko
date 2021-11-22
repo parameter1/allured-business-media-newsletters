@@ -66,7 +66,7 @@ $ const readMoreLinkStyles = {
   <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border-collapse:collapse; border: 3px solid #FF9900; background-color:#FFFFFF; clear:both;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="borderfixWhite branded " style="overflow: hidden;margin-bottom: 9px;padding: 8px 12px 4px;background-color: #fff;border: 3px solid #FF9900;">
     <h4 style="font-size:11px; line-height:19px; margin:0px; padding:0px; text-align:left; font-weight:bold; letter-spacing:1px; text-transform:uppercase; color:#666666; font-family:Helvetica,Arial,sans-serif; color:#FF9900; border-bottom:2px solid #FF9900;">Sponsored</h4>
-    <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: h2Styles } >
+    <marko-core-obj-text obj=node tag="h2" field="name" html=true attrs={ style: h2Styles } >
       <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyles }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />

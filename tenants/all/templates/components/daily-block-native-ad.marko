@@ -88,7 +88,7 @@ $ const imgStyles = {
     <!-- End of Image -->
 
     <!-- Headline -->
-    <marko-core-obj-text obj=node field="name" attrs={ style: headlineStyle }>
+    <marko-core-obj-text obj=node field="name" html=true attrs={ style: headlineStyle }>
       <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
         <@after>
           <common-dpm-content

@@ -44,7 +44,7 @@ $ const nodeStyle = {
     <div class="category" style="padding: 0px 0px 1px;">
       <h1 style=headlineStyle>${sectionName}</h1>
       <for|node| of=nodes>
-        <marko-core-obj-text obj=node field="teaser" tag="h5" attrs={ style: nodeStyle } />
+        <marko-core-obj-text obj=node field="teaser" tag="h5" html=true attrs={ style: nodeStyle } />
       </for>
       <common-spacer-element />
     </div>
