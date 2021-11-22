@@ -90,7 +90,7 @@ $ const byline = node.byline || authors.join(', ');
 <if(node)>
   <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
-    <marko-core-obj-text obj=node tag="h2" field="name" attrs={ style: headlineStyle } >
+    <marko-core-obj-text obj=node tag="h2" field="name" html=true attrs={ style: headlineStyle } >
       <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
