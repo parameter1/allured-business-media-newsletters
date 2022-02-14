@@ -102,7 +102,7 @@ $ const byline = node.byline || authors.join(', ');
       $ const imageOptions = {
         w: 600,
         h: 300,
-        ...!image.isLogo && { fit: "crop",crop:"faces" },
+        ...!image.isLogo && { fit: "crop", crop: "faces" },
       }
       <marko-newsletter-imgix
         src=image.src
