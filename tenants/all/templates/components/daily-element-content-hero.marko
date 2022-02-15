@@ -98,12 +98,11 @@ $ const byline = node.byline || authors.join(', ');
       </@link>
     </marko-core-obj-text>
 
-    <!--[if gte mso 9]></td></tr></table><![endif]-->
     <marko-core-obj-value|{ value: image }| obj=node field="primaryImage" as="object">
       $ const imageOptions = {
-        "width": "600px",
-        "height": "300px",
-        ...!image.isLogo && { fit: "crop" },
+        w: 600,
+        h: 300,
+        ...!image.isLogo && { fit: "crop", crop: "faces" },
       }
       <marko-newsletter-imgix
         src=image.src
