@@ -919,6 +919,15 @@ config
       width: 600,
       height: 300,
     },
+  ])
+
+  .setAdUnits('wpc-product-roundup', [
+    {
+      name: 'promotion-slot-1',
+      id: '6214f8a025ab27e5c228bac1',
+      width: 600,
+      height: 300,
+    },
   ]);
 
 module.exports = config;
