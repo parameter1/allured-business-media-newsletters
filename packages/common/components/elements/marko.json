@@ -15,6 +15,7 @@
     },
     "@ad-unit": "object",
     "@date": "date",
+    "@url-params": "object",
     "@with-header": "boolean"
   }
 }

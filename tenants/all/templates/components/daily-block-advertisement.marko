@@ -1,4 +1,5 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 import { convertAdToContent } from "@allured-business-media/common/native-x";
 
@@ -8,6 +9,7 @@ $ const nativeX = config.getAsObject("nativeX");
 $ const adUnit = getAsObject(input, "adUnit");
 $ const newsletter = getAsObject(input, "newsletter");
 $ const { sectionName, date, placementId } = input;
+$ const urlParams = defaultValue(input.urlParams, false);
 
 <if(nativeX.uri && placementId)>
   <native-x-fetch|{ data: nxData }| uri=nativeX.uri date=date placement-id=placementId>
@@ -90,6 +92,7 @@ $ const { sectionName, date, placementId } = input;
     date=date
     dpm=input.dpm
     with-header=input.withHeader
+    url-params=urlParams
   />
 </else-if>
 

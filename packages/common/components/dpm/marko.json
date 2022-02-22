@@ -36,6 +36,7 @@
     "@use-emailx-href": "boolean",
     "@class": "string",
     "@attrs": "object",
+    "@url-params": "object",
     "@with-header": "boolean"
   },
   "<common-dpm-digital-edition-cover-row>": {
