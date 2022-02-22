@@ -1,10 +1,23 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
 $ const { previewText } = input;
 
 $ const dateIntro = false;
+$ const logoAttributes = defaultValue(input.logoAttributes, true);
 
 $ const logoStyles = {
   "max-width": "100% !important",
   "height": "auto !important",
+  "display": "inline-block",
+  "margin": "0 auto",
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "background-color": "#fff",
+};
+
+$ const wpcLogoStyles = {
+  "max-width": "100% !important",
   "display": "inline-block",
   "margin": "0 auto",
   "border": 0,
@@ -36,10 +49,23 @@ $ const logoStyles = {
           <@link href=input.href title=input.name target="_blank" />
         </marko-newsletter-imgix>
       </div>
-      <common-spacer-element />
     </div>
-    <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
   </div>
+  <if(logoAttributes)>
+    <div id="headers" style="text-align: center; padding: 0px 0px; display: block; margin: 0px 0 5px; overflow: hidden; position: relative;">
+      <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="middle" width="224" align="center" style="text-align:center;"><![endif]-->
+      <div id="branding" style="width: 100%; vertical-align: top; margin:0px auto 0px; overflow:hidden; position:relative; background-color: #fff;">
+        <common-spacer-element />
+          <div id="headline" style="max-width:100% !important; display:inline-block; vertical-align: bottom; margin:0px auto; overflow:hidden; text-align: center; background-color: #fff;">
+            <marko-newsletter-imgix src=input.imageSrc options={ w: 600 } alt=input.name attrs={ border: 0, width: 600, style: wpcLogoStyles }>
+            <@link href=input.href title=input.name target="_blank" />
+            </marko-newsletter-imgix>
+          </div>
+        <common-spacer-element />
+      </div>
+      <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+    </div>
+  </if>
 </div>
 
 <if(dateIntro)>
