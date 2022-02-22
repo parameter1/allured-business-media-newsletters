@@ -1,0 +1,52 @@
+$ const { previewText } = input;
+
+$ const dateIntro = false;
+
+$ const wpcLogoStyles = {
+  "max-width": "100% !important",
+  "display": "inline-block",
+  "margin": "0 auto",
+  "border": 0,
+  "outline": "none",
+  "text-decoration": "none",
+  "background-color": "#fff",
+};
+
+<div id="header">
+  <if(previewText)>
+    <p id="previewText" style="margin: 0;font-family: Arial, Helvetica, sans-serif;font-size: 1px;line-height: 1px;color: #fff;padding: 0;visibility: hidden;">${previewText}</p>
+  </if>
+  <table width="100%" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color: #FFFFFF;">
+    <tr>
+      <td valign="middle" width="60%" align="left" style="text-align:left;">
+        <p id="troubleReading" style="margin: 0; font-family:Arial, Helvetica, sans-serif; font-size:10px; line-height:18px; padding:1px 0px 5px 0px;"> Trouble reading this? <a href="@{mv_online_version}@">Click Here</a>.</p>
+      </td>
+      <td valign="middle" width="40%" align="right" style="text-align:right;">
+        <p id="sendLink" style="margin: 0; font-family:Arial, Helvetica, sans-serif; font-size:10px; line-height:18px; padding:1px 0px 5px 0px; text-align:right !important;"><a href="@{forwardtoafriendlink}@" style="color: #06f; text-decoration: underline;">Send to a Friend</a>.</p>
+      </td>
+    </tr>
+  </table><!--[if (gte mso 9)|(lte IE 9)]><p class="ie" style="line-height:15px; height:15px;">&nbsp;</p><![endif]-->
+  <div id="headers" style="text-align: center; padding: 0px 0px; display: block; margin: 0px 0 5px; overflow: hidden; position: relative;">
+    <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="middle" width="224" align="center" style="text-align:center;"><![endif]-->
+    <div id="branding" style="width: 100%; vertical-align: top; margin:0px auto 0px; overflow:hidden; position:relative; background-color: #fff;">
+      <common-spacer-element />
+      <div id="headline" style="max-width:100% !important; display:inline-block; vertical-align: bottom; margin:0px auto; overflow:hidden; text-align: center; background-color: #fff;">
+        <marko-newsletter-imgix src=input.imageSrc options={ w: 600, height: 275 } alt=input.name attrs={ border: 0, width: 600, height: 275, style: wpcLogoStyles }>
+          <@link href=input.href title=input.name target="_blank" />
+        </marko-newsletter-imgix>
+      </div>
+      <common-spacer-element />
+    </div>
+    <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+  </div>
+</div>
+
+<if(dateIntro)>
+  <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div id="dateIntro" class="" style="padding: 0px 0px 1px; margin-bottom: 1px;">
+    <common-spacer-element />
+    <h3 style="margin: 0px;font-size: 14px;line-height: 16px;text-align:left;color:#FFFFFF; border-style: solid; border-width:3px 6px 3px; border-color:#0DB5D9; background-color:#0DB5D9">${input.date.format("dddd MMMM D, YYYY")}</h3>
+    <common-spacer-element />
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+</if>
