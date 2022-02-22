@@ -1,5 +1,6 @@
 import { getAsObject, get } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import { URLSearchParams } from "url";
 
 $ const adUnit = getAsObject(input, "adUnit");
 $ const dpm = getAsObject(input, "dpm");
@@ -7,6 +8,8 @@ $ const dpm = getAsObject(input, "dpm");
 $ const useEmailxHref = defaultValue(input.useEmailxHref, false);
 
 $ const withHeader = defaultValue(input.withHeader, true);
+$ const urlParams = defaultValue(input.urlParams, false);
+$ const isPromoSlot = (adUnit.name == "promotion-slot-1" && !input.withHeader);
 
 $ const { name, alias } = adUnit;
 $ const classNames = [`email-x-${alias}-${name}`, input.class];
@@ -18,8 +21,12 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
     $ const { data, clickHref, imageSrc } = response;
     $ const { ad } = data;
 
+    $ const queryConnector = (ad.url && (ad.url.search(/\?/) + 1)) ? "&" : "?";
+    $ const queryString = (urlParams) ? `${queryConnector}${new URLSearchParams(urlParams)}` : "";
+    $ const adUrl = (isPromoSlot && urlParams) ? `${ad.url}${queryString}` : ad.url;
+
     <!-- determine whether to use emailx click url or the native ad url -->
-    $ const href = useEmailxHref ? clickHref : ad.url;
+    $ const href = useEmailxHref ? clickHref : adUrl;
     $ const imageAttrs = {
       ...getAsObject(input.image, "attrs"),
       width: ad.width,

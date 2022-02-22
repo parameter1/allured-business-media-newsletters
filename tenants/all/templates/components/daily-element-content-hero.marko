@@ -1,5 +1,7 @@
 import { get, getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
+import { URLSearchParams } from "url";
 
+$ const { urlParams } = input;
 $ const node = getAsObject(input, "node");
 $ const labels = getAsArray(input, "node.labels");
 
@@ -88,10 +90,15 @@ $ const authors = getAsArray(node, "authors.edges").map(edge => get(edge, "node.
 $ const byline = node.byline || authors.join(', ');
 
 <if(node)>
+  $ const contentUrlContext = node.siteContext.url;
+  $ const queryConnector = (contentUrlContext && (contentUrlContext.search(/\?/) + 1)) ? "&" : "?";
+  $ const queryString = (urlParams) ? `${queryConnector}${new URLSearchParams(urlParams)}` : "";
+  $ const contentUrl = `${contentUrlContext}${queryString}`;
+
   <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
     <marko-core-obj-text obj=node tag="h2" field="name" html=true attrs={ style: headlineStyle } >
-      <@link href=node.siteContext.url target="_blank" attrs={ style: headlineLinkStyle }>
+      <@link href=contentUrl target="_blank" attrs={ style: headlineLinkStyle }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
         </@after>
@@ -111,7 +118,7 @@ $ const byline = node.byline || authors.join(', ');
         class="main"
         attrs={ border: 0, width: 600, align: "center", vspace: 5, style: imgStyles }
       >
-        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+        <@link href=contentUrl target="_blank" attrs={ style: imgLinkStyles }>
           <@after>
             <common-dpm-content node=node dpm=input.dpm />
           </@after>
@@ -126,7 +133,7 @@ $ const byline = node.byline || authors.join(', ');
     <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
 
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyle }>
-      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
+      <@link href=contentUrl target="_blank" attrs={ style: linkStyle }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
         </@after>
