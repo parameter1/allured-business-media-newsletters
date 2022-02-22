@@ -1,8 +1,11 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 import emailX from "../config/email-x";
 
 $ const { website, config } = out.global;
 $ const { newsletter, date } = data;
+$ const logoAttributes = defaultValue(input.logoAttributes, true);
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
 
@@ -20,11 +23,12 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
     <div class="wrapper" style="font-family: Trebuchet, Helvetica, Arial,sans-serif;max-width: 600px;font-size: 100%;margin: 0 auto;padding: 0 5px;">
 
       <!-- View online, logos, dateline -->
-      <daily-header-full
+      <daily-header
         name=newsletter.name
         href=website.get("origin")
         date=date
         image-src="/files/base/allured/all/image/static/newsletter/wpcLogo_PF-2022-NOYEAR.jpeg"
+        logo-attributes=logoAttributes
       />
 
       <!-- In This Issue -->
