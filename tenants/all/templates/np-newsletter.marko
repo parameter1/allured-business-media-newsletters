@@ -10,6 +10,14 @@ $ const { newsletter, date } = data;
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
 
+$ const utmSource = "newsletter-html";
+$ const utmMedium = "email";
+$ const utmBrand = get(newsletter, "site.shortName") || "";
+$ const utmDate = date.format("MM-DD-YYYY");
+$ const utmCampaign = `${utmBrand} E-Newsletter ${utmDate}`;
+$ const utmParams = {"utm_source" : utmSource, "utm_medium" : utmMedium, "utm_campaign" : utmCampaign};
+$ const urlParams = (utmParams) ? utmParams : false;
+
 <marko-newsletter-root
   title=newsletter.name
   description=newsletter.description
@@ -45,6 +53,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Headline"
         limit=10
         dpm={ startingPosition: 100 }
+        url-params=urlParams
       />
 
       <common-spacer-element />
@@ -56,6 +65,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
         dpm={ lc: "Editorial", position: 1 }
         with-header=false
+        url-params=urlParams
       />
 
       <daily-block-advertisement
@@ -73,6 +83,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Industry News"
         dpm={ startingPosition: 200 }
+        url-params=urlParams
       />
 
       <common-spacer-element />
@@ -93,6 +104,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="New Products"
         with-hero=false
         dpm={ startingPosition: 300 }
+        url-params=urlParams
       />
 
       <common-spacer-element />
@@ -112,6 +124,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Business"
         dpm={ startingPosition: 400 }
+        url-params=urlParams
       />
 
       <!-- Now Trending -->
@@ -120,6 +133,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Now Trending"
         dpm={ startingPosition: 500 }
+        url-params=urlParams
       />
 
       <!-- Mani Mondays -->
@@ -129,6 +143,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         section-name="Mani Mondays"
         ad-position="secondary"
         dpm={ startingPosition: 600 }
+        url-params=urlParams
       />
 
       <!-- Technique -->
@@ -137,6 +152,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Technique"
         dpm={ startingPosition: 700 }
+        url-params=urlParams
       />
 
       <!-- Health -->
@@ -145,6 +161,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Health"
         dpm={ startingPosition: 800 }
+        url-params=urlParams
       />
 
       <!-- Style -->
@@ -153,6 +170,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Style"
         dpm={ startingPosition: 900 }
+        url-params=urlParams
       />
 
       <!-- Nail Art -->
@@ -161,6 +179,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="Nail Art"
         dpm={ startingPosition: 1000 }
+        url-params=urlParams
       />
 
       <!-- In Case You Missed It -->
@@ -169,6 +188,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         newsletter=newsletter
         section-name="In Case You Missed It"
         dpm={ startingPosition: 1100 }
+        url-params=urlParams
       />
 
       <common-spacer-element />
