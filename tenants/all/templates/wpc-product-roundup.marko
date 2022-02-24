@@ -1,11 +1,9 @@
-import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
-
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 import emailX from "../config/email-x";
 
 $ const { website, config } = out.global;
 $ const { newsletter, date } = data;
-$ const logoAttributes = defaultValue(input.logoAttributes, true);
+$ const logoHeightInput = input;
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
 
@@ -28,7 +26,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
         href=website.get("origin")
         date=date
         image-src="/files/base/allured/all/image/static/newsletter/wpcLogo_PF-2022-NOYEAR.jpeg"
-        logo-attributes=logoAttributes
+        logo-height-input={ height: 275 }
       />
 
       <!-- In This Issue -->
