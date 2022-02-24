@@ -7,6 +7,7 @@ module.exports = {
   dpm: {
     emailx: {
       enabled: true,
+      useEmailxHref: true,
     },
     content: {
       enabled: true,
