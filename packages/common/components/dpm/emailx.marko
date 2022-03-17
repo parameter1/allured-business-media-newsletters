@@ -1,6 +1,6 @@
 import { getAsObject, get } from "@parameter1/base-cms-object-path";
+import buildUrl from "@allured-business-media/common/utils/build-link-url";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
-import { URLSearchParams } from "url";
 
 $ const adUnit = getAsObject(input, "adUnit");
 $ const dpm = getAsObject(input, "dpm");
@@ -21,12 +21,8 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
     $ const { data, clickHref, imageSrc } = response;
     $ const { ad } = data;
 
-    $ const queryConnector = (ad.url && (ad.url.search(/\?/) + 1)) ? "&" : "?";
-    $ const queryString = (urlParams) ? `${queryConnector}${new URLSearchParams(urlParams)}` : "";
-    $ const adUrl = (isPromoSlot && urlParams) ? `${ad.url}${queryString}` : ad.url;
-
     <!-- determine whether to use emailx click url or the native ad url -->
-    $ const href = useEmailxHref ? clickHref : adUrl;
+    $ const href = useEmailxHref ? clickHref : buildUrl({ url: ad.url, params: urlParams });
     $ const imageAttrs = {
       ...getAsObject(input.image, "attrs"),
       width: ad.width,
