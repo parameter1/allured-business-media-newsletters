@@ -1,4 +1,5 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 import emailX from "../../config/email-x";
 
@@ -6,6 +7,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
 $ const { config } = out.global;
 $ const { date, newsletter, sectionName, limit } = input;
 $ const dpm = getAsObject(input, 'dpm');
+$ const urlParams = defaultValue(input.urlParams, false);
 
 <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
 <div class="category" style="padding: 0px 0px 1px;">
@@ -20,12 +22,12 @@ $ const dpm = getAsObject(input, 'dpm');
     $ const heroNode = nodes.slice(0, 1)[0];
     $ const listNodes = nodes.slice(1);
     $ nodePosition += 1;
-    <daily-element-content-hero node=heroNode dpm={ position: nodePosition } />
+    <daily-element-content-hero node=heroNode dpm={ position: nodePosition } url-params=urlParams />
     <common-spacer-element />
 
     <for|node| of=listNodes>
       $ nodePosition += 1;
-      <daily-element-content-standard node=node dpm={ position: nodePosition } />
+      <daily-element-content-standard node=node dpm={ position: nodePosition } url-params=urlParams />
       <common-spacer-element />
     </for>
   </marko-web-query>

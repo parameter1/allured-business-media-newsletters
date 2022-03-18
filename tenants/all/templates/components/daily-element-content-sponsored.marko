@@ -1,4 +1,8 @@
 import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path"
+import buildUrl from "@allured-business-media/common/utils/build-link-url";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+
+$ const urlParams = defaultValue(input.urlParams, {});
 
 $ const node = getAsObject(input, "node");
 
@@ -63,11 +67,12 @@ $ const readMoreLinkStyles = {
 };
 
 <if(node)>
+
   <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border-collapse:collapse; border: 3px solid #FF9900; background-color:#FFFFFF; clear:both;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="borderfixWhite branded " style="overflow: hidden;margin-bottom: 9px;padding: 8px 12px 4px;background-color: #fff;border: 3px solid #FF9900;">
     <h4 style="font-size:11px; line-height:19px; margin:0px; padding:0px; text-align:left; font-weight:bold; letter-spacing:1px; text-transform:uppercase; color:#666666; font-family:Helvetica,Arial,sans-serif; color:#FF9900; border-bottom:2px solid #FF9900;">Sponsored</h4>
     <marko-core-obj-text obj=node tag="h2" field="name" html=true attrs={ style: h2Styles } >
-      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyles }>
+      <@link href=buildUrl({ url: node.siteContext.url, params: urlParams }) target="_blank" attrs={ style: linkStyles }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
         </@after>
@@ -82,7 +87,7 @@ $ const readMoreLinkStyles = {
         class="main"
         attrs={ border: 0, width: 115, h: 115, align: "left", hspace: 10, style: imgStyles }
       >
-        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+        <@link href=buildUrl({ url: node.siteContext.url, params: urlParams }) target="_blank" attrs={ style: imgLinkStyles }>
           <@after>
             <common-dpm-content node=node dpm=input.dpm />
           </@after>
@@ -93,7 +98,7 @@ $ const readMoreLinkStyles = {
 
     <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyles } />
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyles }>
-      <@link href=node.siteContext.url target="_blank" attrs={ style: readMoreLinkStyles }>
+      <@link href=buildUrl({ url: node.siteContext.url, params: urlParams }) target="_blank" attrs={ style: readMoreLinkStyles }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
         </@after>

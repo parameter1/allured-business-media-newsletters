@@ -4,6 +4,7 @@ import { getAsObject } from "@parameter1/base-cms-object-path";
 $ const { config } = out.global;
 
 $ const adUnit = getAsObject(input, "adUnit");
+$ const urlParams = defaultValue(input.urlParams, false);
 
 <!-- merge the dpm input config with the global dpm config -->
 <!-- passing input directly to the component will override the global config values -->
@@ -22,6 +23,7 @@ $ const dpm = {
     use-emailx-href=defaultValue(dpm.useEmailxHref, false)
     when-empty=dpm.whenEmpty
     with-header=input.withHeader
+    url-params=urlParams
   >
     <!-- pass dpm ln, lc, lcv, lkw values if passed, otherwise the defaults will be used -->
     <@dpm ln=dpm.ln lc=dpm.lc lcv=dpm.lcv lkw=dpm.lkw position=dpm.position />
