@@ -1,5 +1,6 @@
 import { get } from "@parameter1/base-cms-object-path";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import buildUtmParams from "@allured-business-media/common/utils/build-utm-params";
 import emailX from "../config/email-x";
 
 $ const { website, config } = out.global;
@@ -10,13 +11,8 @@ $ const { newsletter, date } = data;
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
 
-$ const utmSource = "newsletter-html";
-$ const utmMedium = "email";
-$ const utmBrand = get(newsletter, "site.shortName") || "";
-$ const utmDate = date.format("MM-DD-YYYY");
-$ const utmCampaign = `WS E-Newsletter ${utmDate}`;
-$ const utmParams = {"utm_source" : utmSource, "utm_medium" : utmMedium, "utm_campaign" : utmCampaign};
-$ const urlParams = (utmParams) ? utmParams : false;
+$ const brand = "WS";
+$ const urlParams = buildUtmParams({ brand, date });
 
 <marko-newsletter-root
   title=newsletter.name
