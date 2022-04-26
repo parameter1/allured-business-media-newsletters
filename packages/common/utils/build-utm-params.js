@@ -1,8 +1,9 @@
-module.exports = ({ brand = '', date }) => {
+module.exports = ({ brand = '', date, isDigital = false }) => {
   const utmDate = date.format('MM-DD-YYYY');
-  const utmCampaign = `${brand} E-Newsletter ${utmDate}`;
+  const utmSource = isDigital ? 'de-notification' : 'newsletter-html';
+  const utmCampaign = isDigital ? `${brand} Digital Magazine ${utmDate}` : `${brand} E-Newsletter ${utmDate}`;
   return {
-    utm_source: 'newsletter-html',
+    utm_source: utmSource,
     utm_medium: 'email',
     utm_campaign: utmCampaign,
   };
