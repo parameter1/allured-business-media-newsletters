@@ -1,10 +1,16 @@
+import { get } from "@parameter1/base-cms-object-path";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import buildUtmParams from "@allured-business-media/common/utils/build-utm-params";
 import emailX from "../config/email-x";
 
 $ const { website, config } = out.global;
 $ const { newsletter, date } = data;
 
 $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-family: Arial, Helvetica, sans-serif; color: #ffffff; font-weight: regular;";
+
+$ const brand = get(newsletter, "site.shortName") || "";
+$ const isDigital = true;
+$ const urlParams = buildUtmParams({ brand, date, isDigital });
 
 <marko-newsletter-root
   title=newsletter.name
@@ -39,6 +45,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
           date=date
           publication-id="5f232c7bc63b4017018b456a"
           ad-unit=adUnit
+          url-params=urlParams
         />
 
       </div>
@@ -61,6 +68,7 @@ $ const blackBarText = "text-decoration: none !important; font-size: 10px; font-
       ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
       dpm={ lc: "Editorial", position: 1 }
       with-header=false
+      url-params=urlParams
     />
 
     <!-- footer -->
