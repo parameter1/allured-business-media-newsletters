@@ -15,6 +15,8 @@ $ const useEmailxHref = defaultValue(input.useEmailxHref, false);
 $ const { name, alias } = adUnit;
 $ const classNames = [`email-x-${alias}-${name}`, input.class];
 
+$ const urlParams = defaultValue(input.urlParams, false);
+
 <div style="padding: 1px 0px 1px; display: block; margin: 0 0 0px 0; overflow: hidden; position: relative;" id="header2">
 
   <!--[if (gte mso 9)|(lte IE 9)]><table width="590" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px;padding:0px;border:0px none;border-collapse:collapse;" class="ieTableFix"><tr><td valign="top" height="290" width="265" align="center" style="text-align:center;"><p style="font-size:1px; line-height:15px; height: 15px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
@@ -25,6 +27,7 @@ $ const classNames = [`email-x-${alias}-${name}`, input.class];
       newsletter=input.newsletter
       publication-id=input.publicationId
       imgWidth=150
+      url-params=urlParams
     />
 
   </div>
