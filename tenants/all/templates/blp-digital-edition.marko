@@ -37,6 +37,13 @@ $ const urlParams = buildUtmParams({ brand, date, isDigital });
 
     <div style="background-color: #FFFFFF;border-bottom: 2px solid #333;margin: 0px 5px; padding: 0px 5px;" id="main">
       <!--[if (gte mso 9)|(lte IE 9)]><p style="font-size:1px; line-height:7px; height: 7px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
+      <digital-edition-overview-block
+        date=date
+        newsletter=newsletter
+        section-name="In This Issue"
+        limit=1
+      /> 
+      <!--[if (gte mso 9)|(lte IE 9)]><p style="font-size:1px; line-height:7px; height: 7px; margin:0px; padding: 0px;">&nbsp;</p><![endif]-->
       <div id="headers" style="background-color:#FFF;text-align: center; padding: 5px 0px; display: block; margin: 5px 0 5px; overflow: hidden; position: relative;">
 
         $ const adUnit = emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias });
@@ -50,18 +57,32 @@ $ const urlParams = buildUtmParams({ brand, date, isDigital });
 
       </div>
 
-      <common-spacer-element />
+      <common-spacer-element 
+        style={
+          "font-size": "20px",
+          "line-height": "20px",
+          "height": "20px"
+        } 
+      />
 
       <!-- In This Issue -->
-      <in-this-issue-block
+      <!-- <in-this-issue-block
         date=date
         newsletter=newsletter
         section-name="In This Issue"
+      /> -->
+
+      <digital-edition-highlight-block
+        date=date
+        newsletter=newsletter
+        section-name="In This Issue"
+        url-params=urlParams
+        limit=3
       />
 
     </div>
-
-    <!-- Promotion Slot 1 -->
+    
+    <!-- Promotion Slot 1
     <daily-block-advertisement
       date=date
       newsletter=newsletter
@@ -69,7 +90,7 @@ $ const urlParams = buildUtmParams({ brand, date, isDigital });
       dpm={ lc: "Editorial", position: 1 }
       with-header=false
       url-params=urlParams
-    />
+    /> -->
 
     <!-- footer -->
     <daily-footer />
