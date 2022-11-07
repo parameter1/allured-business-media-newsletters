@@ -47,7 +47,8 @@ $ const dpmEnabled = isDigital ? false : dpmConfig.enabled;
       get(node, "company.tasAdvertiserId") || "",
       node.id,
       position,
-      node.name,
+      // Strip the Editorial content name of "special characters"
+      node.name.replace(/[^a-zA-Z0-9 ]/g, ''),
     ].join("|");
     $ const dpm = {
       ln: (node.type === "product") ? companyName : authors,
