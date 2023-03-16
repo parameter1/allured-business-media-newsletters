@@ -1,0 +1,63 @@
+import { getAsObject } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
+import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
+import emailX from "../../config/email-x";
+
+$ const { config } = out.global;
+$ const { date, newsletter, sectionName } = input;
+$ const limit = defaultValue(input.limit, 1);
+
+$ const headlineStylePlain = {
+  "font-size": "20px",
+  "line-height": "26px",
+  "margin": "0px 0px 3px 0px",
+  "padding": "0px 0px 3px 0px",
+  "color": "#000000",
+  "text-align": "left",
+  "font-family": "Helvetica,Arial,sans-serif",
+  "font-weight": "bold",
+};
+$ const headlineStyle = {
+  "margin": "0px",
+  "color": "#000",
+  "font-size": "20px",
+  "line-height": "27px",
+  "padding": "5px 5px 0px",
+  "background-color": "#FFF",
+  "text-align": "center",
+  "text-transform": "uppercase",
+  "font-weight": "normal",
+  "border-top": "2px solid #000",
+  "border-bottom": "2px solid #000",
+}
+$ const teaserStyle = {
+  "padding": "2px 0px 2px 0px",
+  "margin": "2px 0px 2px 2px",
+  "font-size": "15px",
+  "line-height": "22px",
+  "font-family": "arial,sans-serif",
+  "text-align": "left",
+  "color": "#333;",
+};
+
+<marko-web-query|{ nodes }| name="newsletter-scheduled-content" params={
+  date: date.valueOf(),
+  newsletterId: newsletter.id,
+  sectionName,
+  limit,
+  queryFragment,
+}>
+  <common-spacer-element />
+  <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+  <div class="category" style="padding: 0px 0px 1px !important;">
+    <for|node| of=nodes>
+        <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
+        <div class="web" style="overflow: hidden; margin: 1px 0; padding: 1px 0; clear: both; background-color: #fff;">
+            <marko-core-obj-text obj=node tag="h2" field="name" html=true attrs={ style: headlineStyle } />
+            <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
+        </div>
+        <!--[if (gte mso 9)|(lte IE 9)]> </td></tr></table><p class="ie" style="font-size: 1px; line-height: 10px; height: 10px; margin: 0px; padding: 0px; font-family: arial,sans-serif; text-align: left; color: #333; background-color: #FFFFFF; clear: both;">&nbsp;</p><![endif]-->
+    </for>
+  </div>
+  <!--[if (gte mso 9)|(lte IE 9)]></td></tr></table><![endif]-->
+</marko-web-query>
