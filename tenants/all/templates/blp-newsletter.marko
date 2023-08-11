@@ -69,7 +69,7 @@ $ const urlParams = buildUtmParams({ brand, date });
         section-name="Ad Slot 1"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
+        placement-id=nativeX.getPlacement({ name: 'ad-slot-1', aliases: [newsletter.alias] }).id
         dpm={ position: 1 }
       />
 
@@ -89,7 +89,7 @@ $ const urlParams = buildUtmParams({ brand, date });
         section-name="Ad Slot 2"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-2", alias: newsletter.alias })
-        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-2`)
+        placement-id=nativeX.getPlacement({ name: 'ad-slot-2', aliases: [newsletter.alias] }).id
         dpm={ position: 2 }
       />
 
@@ -110,7 +110,7 @@ $ const urlParams = buildUtmParams({ brand, date });
         section-name="Ad Slot 3"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-3", alias: newsletter.alias })
-        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-3`)
+        placement-id=nativeX.getPlacement({ name: 'ad-slot-3', aliases: [newsletter.alias] }).id
         dpm={ position: 3 }
       />
 
@@ -157,7 +157,7 @@ $ const urlParams = buildUtmParams({ brand, date });
         section-name="Ad Slot 4"
         newsletter=newsletter
         ad-unit=emailX.getAdUnit({ name: "ad-slot-4", alias: newsletter.alias })
-        placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-4`)
+        placement-id=nativeX.getPlacement({ name: 'ad-slot-4', aliases: [newsletter.alias] }).id
         dpm={ position: 4 }
       />
 

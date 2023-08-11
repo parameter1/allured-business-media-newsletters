@@ -68,7 +68,7 @@ $ const urlParams = buildUtmParams({ brand, date });
       date=date
       newsletter=newsletter
       ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-      placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
+      placement-id=nativeX.getPlacement({ name: 'ad-slot-1', aliases: [newsletter.alias] }).id
       dpm={ position: 1 }
     />
 
