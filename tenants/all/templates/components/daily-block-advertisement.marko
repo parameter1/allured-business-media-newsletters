@@ -12,7 +12,7 @@ $ const { sectionName, date, placementId } = input;
 $ const urlParams = defaultValue(input.urlParams, false);
 
 <if(nativeX.uri && placementId)>
-  <native-x-fetch|{ data: nxData }| uri=nativeX.uri date=date placement-id=placementId>
+  <core-native-x-fetch|{ data: nxData }| uri=nativeX.uri date=date placement-id=placementId>
     <if(nxData)>
       $ const nxNode = convertAdToContent(nxData);
       <daily-block-native-ad
@@ -57,7 +57,7 @@ $ const urlParams = defaultValue(input.urlParams, false);
         with-header=input.withHeader
       />
     </else-if>
-  </native-x-fetch>
+  </core-native-x-fetch>
 </if>
 <else-if(sectionName)>
   <marko-web-query|{ nodes }| name="newsletter-scheduled-content" collapsible=false params={
@@ -95,4 +95,3 @@ $ const urlParams = defaultValue(input.urlParams, false);
     url-params=urlParams
   />
 </else-if>
-
