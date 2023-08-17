@@ -916,7 +916,7 @@
   dependencies:
     dayjs "^1.11.7"
 
-"@parameter1/base-cms-eslint@^4.1.0":
+"@parameter1/base-cms-eslint@^4.5.12":
   version "4.5.12"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-eslint/-/base-cms-eslint-4.5.12.tgz#480328e3ed1d81feafe51adb9d02754b9062cdb7"
   integrity sha512-ECSYaAwHhObwg8e/zemC3qSATq+KZwX759HUcsdq3qA/g6UV9q+etOfpFhNF0h79sNuIrndmW5ur3EYn+3Xa2A==
@@ -1007,6 +1007,15 @@
     "@parameter1/base-cms-object-path" "^4.5.12"
     "@parameter1/base-cms-utils" "^4.5.12"
     moment "^2.29.1"
+    node-fetch "^2.6.9"
+
+"@parameter1/base-cms-marko-newsletters-native-x@^4.34.7":
+  version "4.34.7"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-newsletters-native-x/-/base-cms-marko-newsletters-native-x-4.34.7.tgz#db5439f4e712ae372a247fbe0967cc803c8d6708"
+  integrity sha512-GFUaJqBOk9hc8tNeGFxGjimokbZCvuqKGUMvQDFm/U1/1AUvmwFDH7UaIKNtbe52t+fDLAzTvU7D/jkbzUie8g==
+  dependencies:
+    "@parameter1/base-cms-object-path" "^4.5.12"
+    "@parameter1/base-cms-utils" "^4.5.12"
     node-fetch "^2.6.9"
 
 "@parameter1/base-cms-marko-newsletters-omail@^4.5.12":
