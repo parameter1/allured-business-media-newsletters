@@ -54,16 +54,6 @@ $ const urlParams = buildUtmParams({ brand, date });
 
       <common-spacer-element />
 
-      <!-- Promotion Slot 1 -->
-      <daily-block-advertisement
-        date=date
-        newsletter=newsletter
-        ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
-        dpm={ lc: "Editorial", position: 1 }
-        with-header=false
-        url-params=urlParams
-      />
-
       <daily-block-advertisement
         date=date
         section-name="Ad Slot 1"
@@ -185,6 +175,16 @@ $ const urlParams = buildUtmParams({ brand, date });
         name="Partnered With Green Spa Network"
         href="https://gsnplanet.org/"
         image-src="/files/base/allured/all/image/static/gsn_logo.png"
+      />
+
+      <!-- Promotion Slot 1 -->
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
+        dpm={ lc: "Editorial", position: 1 }
+        with-header=false
+        url-params=urlParams
       />
 
       <!-- footer -->
