@@ -54,16 +54,6 @@ $ const urlParams = buildUtmParams({ brand, date });
 
       <common-spacer-element />
 
-      <!-- Promotion Slot 1 -->
-      <daily-block-advertisement
-        date=date
-        newsletter=newsletter
-        ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
-        dpm={ lc: "Editorial", position: 1 }
-        with-header=false
-        url-params=urlParams
-      />
-
       <daily-block-advertisement
         date=date
         newsletter=newsletter
@@ -136,6 +126,16 @@ $ const urlParams = buildUtmParams({ brand, date });
         newsletter=newsletter
         section-name="Partners"
         dpm={ startingPosition: 500 }
+        url-params=urlParams
+      />
+
+      <!-- Promotion Slot 1 -->
+      <daily-block-advertisement
+        date=date
+        newsletter=newsletter
+        ad-unit=emailX.getAdUnit({ name: "promotion-slot-1", alias: newsletter.alias })
+        dpm={ lc: "Editorial", position: 1 }
+        with-header=false
         url-params=urlParams
       />
 

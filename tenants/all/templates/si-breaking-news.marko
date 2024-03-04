@@ -54,6 +54,14 @@ $ const urlParams = buildUtmParams({ brand, date });
 
     <common-spacer-element />
 
+    <daily-block-advertisement
+      date=date
+      newsletter=newsletter
+      ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
+      placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
+      dpm={ position: 1 }
+    />
+
     <!-- Promotion Slot 1 -->
     <daily-block-advertisement
       date=date
@@ -62,14 +70,6 @@ $ const urlParams = buildUtmParams({ brand, date });
       dpm={ lc: "Editorial", position: 1 }
       with-header=false
       url-params=urlParams
-    />
-
-    <daily-block-advertisement
-      date=date
-      newsletter=newsletter
-      ad-unit=emailX.getAdUnit({ name: "ad-slot-1", alias: newsletter.alias })
-      placement-id=get(nativeX, `placements.${newsletter.alias}.ad-slot-1`)
-      dpm={ position: 1 }
     />
 
     <!-- footer -->

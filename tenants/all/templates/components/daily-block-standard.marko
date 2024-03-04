@@ -8,7 +8,7 @@ $ const { config } = out.global;
 $ const { date, newsletter, sectionName } = input;
 
 $ const limit = defaultValue(input.limit, 10);
-$ const title = defaultValue(input.title, sectionName);
+$ const title = defaultValue(input.title, false);
 $ const withHero = defaultValue(input.withHero, true);
 $ const dpm = getAsObject(input, 'dpm');
 $ const urlParams = defaultValue(input.urlParams, false);
@@ -24,7 +24,9 @@ $ const urlParams = defaultValue(input.urlParams, false);
   <common-spacer-element />
   <!--[if (gte mso 9)|(lte IE 9)]><table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="category" style="padding: 0px 0px 1px;">
-    <h1 style="margin: 0px;font-size: 16px;line-height: 18px;text-align: left;letter-spacing:.5px;text-transform:uppercase;font-weight:normal;color:#FFFFFF;border-style: solid;border-width:5px 5px 4px;background-color: #FF9900;border-color: #FF9900; ">${title}</h1>
+    <if(title)>
+      <h1 style="margin: 0px;font-size: 16px;line-height: 18px;text-align: left;letter-spacing:.5px;text-transform:uppercase;font-weight:normal;color:#FFFFFF;border-style: solid;border-width:5px 5px 4px;background-color: #FF9900;border-color: #FF9900; ">${title}</h1>
+    </if>
     <if(withHero)>
       $ const heroNode = nodes.slice(0, 1)[0];
       $ const listNodes = nodes.slice(1);
