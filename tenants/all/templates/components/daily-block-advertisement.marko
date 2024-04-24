@@ -1,4 +1,4 @@
-import { getAsObject } from "@parameter1/base-cms-object-path";
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "@allured-business-media/common/graphql/fragments/content-list";
 import convertAdToContent from "@allured-business-media/common/utils/convert-ad-to-content";
@@ -12,7 +12,7 @@ $ const { sectionName, date, placementId } = input;
 $ const urlParams = defaultValue(input.urlParams, false);
 
 <if(nativeX.uri && placementId)>
-  <core-native-x-fetch|{ data: nxData }| uri=nativeX.uri date=date placement-id=placementId>
+  <core-native-x-fetch|{ data: nxData, tenant }| uri=nativeX.uri date=date placement-id=placementId>
     <if(nxData)>
       $ const nxNode = convertAdToContent(nxData);
       <daily-block-native-ad
@@ -20,6 +20,8 @@ $ const urlParams = defaultValue(input.urlParams, false);
         date=date
         node=nxNode
         dpm=input.dpm
+        tenant=tenant
+        creative-id=get(nxData, "creative.mindfulCreativeId")
       />
     </if>
     <else-if(sectionName)>
