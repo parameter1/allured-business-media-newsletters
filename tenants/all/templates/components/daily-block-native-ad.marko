@@ -1,7 +1,9 @@
-import { getAsObject } from "@parameter1/base-cms-object-path";
+import { get, getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const { node, date } = input;
 $ const newsletter = getAsObject(input, "newsletter");
+$ const creativeId = get(input, "creativeId");
+$ const tenant = get(input, "tenant");
 
 $ const linkStyle = {
   "color": "#06f",
@@ -58,6 +60,22 @@ $ const imgStyles = {
   "max-width": "30% !important;",
 }
 
+$ const defaultLinkAttrs = {
+  ...(getAsObject(input, "link.attrs")),
+  ...(creativeId && { 'data-mindful-creative-id': creativeId }),
+  ...(tenant && { 'data-mindful-tenant': tenant }),
+};
+
+$ const imageLinkAttrs = {
+  ...defaultLinkAttrs,
+  style: imgLinkStyles,
+}
+
+$ const linkAttrs = {
+    ...defaultLinkAttrs,
+  style: linkStyle,
+}
+
 <div class="banner" style="margin:5px auto; padding:3px 0px 10px;min-width:300px !important; text-align:center; clear:both; overflow:hidden; background-color:#E5E5E5; background:#e5e5e5 linear-gradient(to right, #fff 0%, #e5e5e5 15%, #e5e5e5 85%, #fff 100%); border-top:1px solid #ddd; border-bottom:1px solid #ddd;">
   <h5 style="font-size:9px; line-height:15px; margin:0px auto; padding:6px 0px 1px 0px; text-align:center; font-weight:normal; letter-spacing:1px; color:#999999; font-family:Helvetica,Arial,sans-serif;">ADVERTISEMENT</h5>
   <div class="wrapper" style="font-family:Helvetica,Arial,sans-serif;max-width: 600px;font-size: 100%;margin: 0 auto;padding: 0 5px;">
@@ -72,7 +90,7 @@ $ const imgStyles = {
         class="main"
         attrs={ border: 0, width: 115, h: 115, align: "left", hspace: 10, style: imgStyles }
       >
-        <@link href=node.siteContext.url target="_blank" attrs={ style: imgLinkStyles }>
+        <@link href=node.siteContext.url target="_blank" attrs=imageLinkAttrs>
           <@after>
             <common-dpm-content
               node=node
@@ -89,7 +107,7 @@ $ const imgStyles = {
 
     <!-- Headline -->
     <marko-core-obj-text obj=node field="name" html=true attrs={ style: headlineStyle }>
-      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
+      <@link href=node.siteContext.url target="_blank" attrs=linkAttrs>
         <@after>
           <common-dpm-content
             node=node
@@ -108,7 +126,7 @@ $ const imgStyles = {
 
     <!-- Read More / Watch Now link -->
     <marko-core-obj-text obj=node field="linkText" attrs={ style: readMoreStyles }>
-      <@link href=node.siteContext.url target="_blank" attrs={ style: linkStyle }>
+      <@link href=node.siteContext.url target="_blank" attrs=linkAttrs>
         <@after>
           <common-dpm-content
             node=node
