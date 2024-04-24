@@ -1,5 +1,5 @@
 module.exports = {
-  uri: 'https://allured.native-x.parameter1.com/email-placement',
+  uri: 'https://delivery.mindfulcms.com/allured/default/compat/native-email/email-placement',
   placements: {
     'blp-newsletter': {
       'ad-slot-1': '6092b63093bd50000124e6a5',
