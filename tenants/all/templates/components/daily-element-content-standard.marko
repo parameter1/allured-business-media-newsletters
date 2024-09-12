@@ -6,6 +6,7 @@ $ const urlParams = defaultValue(input.urlParams, {});
 
 $ const node = getAsObject(input, "node");
 $ const labels = getAsArray(input, "node.labels");
+$ const isDigital = get(input, "dpm.isDigital") || false;
 
 $ const linkStyle = {
   "color": "#06f",
@@ -73,6 +74,7 @@ $ const bylineStyle = {
 };
 $ const authors = getAsArray(node, "authors.edges").map(edge => get(edge, "node.name"));
 $ const byline = node.byline || authors.join(', ');
+$ const itemUrl = (node.digitalEditionUrl && isDigital) ? node.digitalEditionUrl : node.siteContext.url
 
 <if(labels && labels.includes("Sponsored"))>
   <daily-element-content-sponsored node=node dpm=input.dpm url-params=urlParams />
@@ -82,7 +84,7 @@ $ const byline = node.byline || authors.join(', ');
   <!--[if (gte mso 9)|(lte IE 9)]> <table width="600" bgcolor="#FFFFFF" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0px; padding:0px; border-collapse:collapse; background-color:#FFFFFF;" class="ieTableFix"><tr><td valign="top"><![endif]-->
   <div class="web" style="overflow: hidden; margin: 5px 0; padding: 5px 0; clear: both; background-color: #fff;">
     <marko-core-obj-text obj=node tag="h2" field="name" html=true attrs={ style: headlineStyle } >
-      <@link href=buildUrl({ url: node.siteContext.url, params: urlParams }) target="_blank" attrs={ style: headlineLinkStyle }>
+      <@link href=buildUrl({ url: itemUrl, params: urlParams }) target="_blank" attrs={ style: headlineLinkStyle }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
         </@after>
@@ -96,7 +98,7 @@ $ const byline = node.byline || authors.join(', ');
     <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
 
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyle }>
-      <@link href=buildUrl({ url: node.siteContext.url, params: urlParams }) target="_blank" attrs={ style: linkStyle }>
+      <@link href=buildUrl({ url: itemUrl, params: urlParams }) target="_blank" attrs={ style: linkStyle }>
         <@after>
           <common-dpm-content node=node dpm=input.dpm />
         </@after>

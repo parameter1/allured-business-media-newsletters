@@ -7,6 +7,7 @@ fragment NewsletterContentListFragment on Content {
   type
   name(input: { mutation: Email })
   teaser(input: { mutation: Email, useFallback: false, maxLength: null })
+  digitalEditionUrl: customAttribute(input: { path: "digitalEditionUrl" })
   primaryImage {
     id
     src
