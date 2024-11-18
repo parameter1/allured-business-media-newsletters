@@ -13,13 +13,13 @@ $ const linkStyle = {
   "text-decoration": "underline",
 };
 $ const teaserStyle = {
-  "padding": "2px 0px 5px 0px",
-  "margin": "2px 0px 5px 2px",
-  "font-size": "15px",
-  "line-height": "22px",
-  "font-family": "arial,sans-serif",
-  "text-align": "left",
-  "color": "#333;",
+  // "padding": "2px 0px 5px 0px",
+  // "margin": "2px 0px 5px 2px",
+  // "font-size": "15px",
+  // "line-height": "22px",
+  // "font-family": "arial,sans-serif",
+  // "text-align": "left",
+  // "color": "#333;",
 };
 
 $ const headlineStyle = {
@@ -95,7 +95,7 @@ $ const itemUrl = (node.digitalEditionUrl && isDigital) ? node.digitalEditionUrl
       <marko-core-text tag="h4" value=`By: ${byline}` class="byline" attrs={ style: bylineStyle } />
     </if>
 
-    <marko-core-obj-text tag="p" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
+    <marko-core-obj-text tag="div" class="abstract" obj=node field="teaser" html=true attrs={ style: teaserStyle } />
 
     <marko-core-text tag="p" value="Read More →" attrs={ style: readMoreStyle }>
       <@link href=buildUrl({ url: itemUrl, params: urlParams }) target="_blank" attrs={ style: linkStyle }>

@@ -22,6 +22,7 @@ $ const urlParams = defaultValue(input.urlParams, false);
         dpm=input.dpm
         tenant=tenant
         creative-id=get(nxData, "creative.mindfulCreativeId")
+        link={ attrs: nxData.elements.a }
       />
     </if>
     <else-if(sectionName)>
